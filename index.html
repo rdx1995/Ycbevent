@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ঈদ-এ-মিলাদুন্নবী (সা.) - ইয়ুথ কমিউনিটি বড়াইগ্রাম</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(135deg, rgba(1, 20, 10, 0.98) 0%, rgba(0, 0, 0, 0.98) 100%), 
+                        url('https://i.ibb.co.com/60w75Tqf/Free-Islamic-template-1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .title-font { font-family: 'Tiro Bangla', serif; }
+        .glass-card {
+            background: rgba(6, 35, 20, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        }
+        .gold-text-gradient {
+            background: linear-gradient(to right, #fef08a, #d4af37, #fef08a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border { border: 2px solid rgba(212, 175, 55, 0.6); }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #021a0f; }
+        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+
+        /* Print / PDF Styling */
+        @media print {
+            body * { visibility: hidden; }
+            #adminModal, #adminModal * { visibility: visible; }
+            #adminModal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: #fff !important;
+                color: #000 !important;
+                padding: 0 !important;
+            }
+            .no-print { display: none !important; }
+            .glass-card {
+                background: #fff !important;
+                color: #000 !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+            }
+            table {
+                color: #000 !important;
+                width: 100% !important;
+                border-collapse: collapse !important;
+            }
+            th, td {
+                border: 1px solid #444 !important;
+                color: #000 !important;
+                padding: 8px !important;
+            }
+            thead { background-color: #e5e7eb !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="w-full p-4 glass-card sticky top-0 z-40 border-b border-amber-500/30">
+        <div class="max-w-6xl mx-auto flex justify-between items-center px-2">
+            <a href="https://youth-community-baraigram.vercel.app/" target="_blank" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg shadow-amber-500/30 group-hover:scale-105 transition">
+                    <i class="fa-solid fa-kaaba text-emerald-950 text-lg"></i>
+                </div>
+                <div>
+                    <span class="block text-[10px] text-amber-300/80 uppercase font-bold tracking-widest">অফিসিয়াল প্ল্যাটফর্ম</span>
+                    <span class="font-bold text-lg md:text-xl text-amber-400 tracking-wide title-font group-hover:underline">ইয়ুথ কমিউনিটি বড়াইগ্রাম</span>
+                </div>
+            </a>
+            <a href="https://youth-community-baraigram.vercel.app/" target="_blank" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/40 px-3.5 py-1.5 rounded-full text-sm transition flex items-center gap-1.5 font-semibold">
+                <i class="fa-solid fa-globe"></i> <span>ওয়েবসাইট</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl flex-grow flex flex-col items-center justify-center">
+        
+        <!-- Hero Section -->
+        <div class="text-center space-y-5 mb-10 w-full relative">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl -z-10"></div>
+
+            <div class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 border border-amber-500/40 px-6 py-2 rounded-full shadow-lg">
+                <i class="fa-solid fa-moon text-amber-300 text-sm"></i>
+                <span class="text-amber-200 text-sm md:text-base font-semibold tracking-wide title-font">বিসমিল্লাহির রহমানির রহিম</span>
+                <i class="fa-solid fa-moon text-amber-300 text-sm"></i>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-extrabold leading-tight gold-text-gradient drop-shadow-2xl title-font py-1">
+                পবিত্র ঈদ-এ-মিলাদুন্নবী (সা.) ১৪৪৬ হিজরি
+            </h1>
+            <p class="text-lg md:text-xl text-emerald-200 font-medium tracking-wide">
+                মহান আল্লাহর রাসুল (সা.) এর শুভাগমন উপলক্ষে দোয়া, মিলাদ, কিয়াম ও ইসলামিক সাংস্কৃতিক অনুষ্ঠান
+            </p>
+
+            <div class="glass-card p-5 rounded-2xl max-w-2xl mx-auto border border-amber-500/40 mt-6 shadow-2xl">
+                <p class="text-emerald-300 text-base md:text-lg font-bold flex items-center justify-center gap-2 mb-2">
+                    <i class="fa-solid fa-location-dot text-amber-400 animate-bounce"></i> 
+                    স্থান: বড়াইগ্রাম পৌর মাঠ প্রাঙ্গন
+                </p>
+                <div class="text-xs md:text-sm text-amber-200/90 font-medium border-t border-emerald-800/60 pt-3 space-y-1">
+                    <p><span class="text-gray-400">আয়োজনে:</span> ইয়ুথ কমিউনিটি বড়াইগ্রাম</p>
+                    <p><span class="text-gray-400">সার্বিক তত্ত্বাবধানে:</span> বড়াইগ্রাম পৌরসভা ও লক্ষিকোল বাজার কেন্দ্রীয় জামে মসজিদ কমিটি</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Countdown Section -->
+        <div class="glass-card rounded-2xl p-6 md:p-8 max-w-3xl mx-auto border border-amber-500/40 mb-10 shadow-2xl relative overflow-hidden w-full">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl"></div>
+            
+            <h2 class="text-xl md:text-2xl font-bold text-center text-amber-400 mb-6 title-font">অনুষ্ঠান শুরু হতে আর বাকি</h2>
+            
+            <div class="flex justify-center gap-3 md:gap-6 text-center z-10 relative">
+                <div class="bg-black/40 border border-emerald-700/50 rounded-xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm">
+                    <span id="cd-days" class="block text-3xl md:text-5xl font-bold text-white mb-1">00</span>
+                    <span class="text-xs md:text-sm text-amber-200">দিন</span>
+                </div>
+                <div class="bg-black/40 border border-emerald-700/50 rounded-xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm">
+                    <span id="cd-hours" class="block text-3xl md:text-5xl font-bold text-white mb-1">00</span>
+                    <span class="text-xs md:text-sm text-amber-200">ঘণ্টা</span>
+                </div>
+                <div class="bg-black/40 border border-emerald-700/50 rounded-xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm">
+                    <span id="cd-minutes" class="block text-3xl md:text-5xl font-bold text-white mb-1">00</span>
+                    <span class="text-xs md:text-sm text-amber-200">মিনিট</span>
+                </div>
+                <div class="bg-black/40 border border-emerald-700/50 rounded-xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm">
+                    <span id="cd-seconds" class="block text-3xl md:text-5xl font-bold text-emerald-400 mb-1">00</span>
+                    <span class="text-xs md:text-sm text-amber-200">সেকেন্ড</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Section -->
+        <div class="text-center mb-6">
+            <button onclick="openDonateModal()" class="group relative px-8 py-4 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-emerald-950 font-bold text-lg md:text-xl rounded-full shadow-[0_0_25px_rgba(212,175,55,0.5)] hover:shadow-[0_0_35px_rgba(212,175,55,0.8)] hover:scale-105 transition-all duration-300 overflow-hidden">
+                <i class="fa-solid fa-hand-holding-heart mr-2"></i> আয়োজনের গর্বিত সহযোগী হোন
+            </button>
+            <p class="text-emerald-300 text-xs md:text-sm mt-3">সহযোগিতা প্রদান করে প্রিমিয়াম পোস্টার ফ্রেম সংগ্রহ করুন</p>
+        </div>
+    </main>
+
+    <!-- Footer Area -->
+    <footer class="w-full glass-card border-t border-emerald-900/80 py-6 mt-auto relative z-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm mb-2">© ২০২৬ ইয়ুথ কমিউনিটি বড়াইগ্রাম। সর্বস্বত্ব সংরক্ষিত।</p>
+            <div class="flex justify-center items-center gap-4 text-xs text-emerald-600">
+                <button onclick="openAdminPrompt()" class="hover:text-amber-500 transition cursor-pointer flex items-center gap-1">
+                    <i class="fa-solid fa-lock"></i> এডমিন প্যানেল
+                </button>
+                <span>|</span>
+                <a href="tel:+8801763752653" class="hover:text-amber-500 transition flex items-center gap-1">
+                    ডেভোলোপ <span class="font-bold text-amber-400">RaFi Digital Solution</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Support Form Modal -->
+    <div id="donateModal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden justify-center items-center p-4 z-50">
+        <div class="glass-card rounded-2xl p-6 md:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto relative border-2 border-amber-500/50 shadow-2xl">
+            <button onclick="closeDonateModal()" class="absolute top-4 right-4 text-amber-300 hover:text-white text-2xl transition">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+            
+            <h3 class="text-2xl font-bold text-amber-400 text-center mb-1 title-font">
+                গর্বিত সহযোগী ফরম
+            </h3>
+            <p class="text-xs text-center text-emerald-200 mb-5 border-b border-emerald-800 pb-3">তথ্য পূরণ করে প্রিমিয়াম ফ্রেম নিন</p>
+
+            <!-- Payment Info -->
+            <div class="bg-gradient-to-r from-emerald-950 to-black p-4 rounded-xl mb-5 border border-amber-500/30 text-center shadow-inner">
+                <p class="text-xs text-emerald-200 mb-1">বিকাশ / নগদ (Send Money)</p>
+                <div class="flex justify-center items-center gap-3 bg-black/50 py-2 px-4 rounded-lg inline-flex">
+                    <span class="text-lg font-bold text-amber-400 tracking-wider">01763752653</span>
+                    <button onclick="copyNumber()" class="text-amber-400 hover:text-white transition text-sm">
+                        <i class="fa-regular fa-copy"></i> কপি
+                    </button>
+                </div>
+                <p id="copy-msg" class="text-xs text-amber-300 mt-1 hidden">নাম্বারটি কপি করা হয়েছে!</p>
+            </div>
+
+            <!-- Form -->
+            <form id="donationForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                
+                <!-- Anonymous Checkbox -->
+                <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-emerald-800/80">
+                    <input type="checkbox" id="anonymous" onchange="toggleAnonymous()" class="w-4 h-4 accent-amber-500 cursor-pointer">
+                    <label for="anonymous" class="text-xs md:text-sm cursor-pointer text-amber-200 font-medium">পরিচয় গোপন রেখে সহযোগী হতে চাই</label>
+                </div>
+
+                <div id="personal-fields" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-amber-200 mb-1">আপনার নাম *</label>
+                        <input type="text" id="donorName" required class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs font-medium text-amber-200 mb-1">আপনার পদবী / ঠিকানা (ঐচ্ছিক)</label>
+                        <input type="text" id="donorDesignation" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm" placeholder="উদা: সদস্য, ইয়ুথ কমিউনিটি">
+                    </div>
+                </div>
+
+                <!-- LIVE PREVIEW -->
+                <div id="photo-wrapper">
+                    <label class="block text-xs font-medium text-amber-200 mb-1">আপনার সুন্দর ছবি (ফ্রেমের জন্য) *</label>
+                    <div class="flex items-center gap-3 bg-black/50 p-2 rounded-lg border border-emerald-700/60">
+                        <img id="formImagePreview" src="" class="hidden w-12 h-12 rounded border-2 border-amber-500/50 object-cover bg-gray-800 shadow-md">
+                        <input type="file" id="donorPhoto" accept="image/*" required class="w-full text-xs text-emerald-200 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-black hover:file:bg-amber-400 cursor-pointer outline-none">
+                    </div>
+                    <p class="text-[10px] text-gray-400 mt-1">ছবি সিলেক্ট করার পর এখানে প্রিভিউ দেখতে পাবেন।</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-amber-200 mb-1">সহযোগিতার পরিমাণ (৳) *</label>
+                    <input type="number" id="donorAmount" required min="200" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm" placeholder="উদা: ২০০">
+                    <p class="text-[10px] text-amber-400/80 mt-1">* প্রিমিয়াম ফ্রেম পেতে সর্বনিম্ন ২০০ টাকা প্রযোজ্য</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-amber-200 mb-1">কীভাবে সহযোগিতা পাঠিয়েছেন? *</label>
+                    <select id="paymentMethod" onchange="togglePaymentFields()" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white outline-none mb-3 text-sm">
+                        <option value="bKash">bKash (বিকাশ)</option>
+                        <option value="Nagad">Nagad (নগদ)</option>
+                        <option value="Cash">সরাসরি (Cash)</option>
+                    </select>
+
+                    <div id="trxWrapper">
+                        <input type="text" id="trxId" placeholder="Transaction ID (TrxID)" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm">
+                    </div>
+
+                    <div id="receiverWrapper" class="hidden">
+                        <input type="text" id="receivedBy" placeholder="যার কাছে টাকা জমা দিয়েছেন তার নাম" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm">
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-emerald-950 font-bold py-3 rounded-xl transition duration-300 shadow-lg text-sm">
+                    জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hidden Pre-render Container (For 100% HD Canvas rendering) -->
+    <!-- এটি স্কিনে দেখা যাবে না, কিন্তু ব্যাকগ্রাউন্ডে ইমেজটি হাই কোয়ালিটিতে জেনারেট করবে -->
+    <div style="position: absolute; top: -9999px; left: -9999px; pointer-events: none;">
+        <div id="fbFrameExport" style="width: 400px; height: 600px; background-color: #fff; position: relative; overflow: hidden;">
+            <!-- New Background Template Image -->
+            <img src="https://i.ibb.co.com/7xHXCL66/Pixellab-ST-20260822-023401.jpg" alt="Template" crossorigin="anonymous" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+            
+            <!-- User Uploaded Image -->
+            <div style="position: absolute; top: 32.5%; left: 24.5%; width: 51%; height: 35.5%; z-index: 2; overflow: hidden; border-radius: 8px;">
+                <img id="frameUserImage" src="" alt="User Image" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            
+            <!-- Name Text -->
+            <div style="position: absolute; top: 68.5%; left: 8%; width: 84%; text-align: center; z-index: 3;">
+                <h4 id="frameUserName" style="color: #fff; font-weight: bold; font-size: 19px; font-family: 'Hind Siliguri', sans-serif; margin: 0; display: inline-block; width: 100%;">নাম</h4>
+            </div>
+
+            <!-- Designation Text -->
+            <div style="position: absolute; top: 76.5%; left: 8%; width: 84%; text-align: center; z-index: 3;">
+                <p id="frameUserDesignation" style="color: #fef08a; font-weight: 500; font-size: 14px; font-family: 'Hind Siliguri', sans-serif; margin: 0; display: inline-block; width: 100%;">পদবী</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Frame Output Modal (Now shows REAL IMAGE for Long Press to Save) -->
+    <div id="frameModal" class="fixed inset-0 bg-black/95 backdrop-blur-md hidden justify-center items-center p-4 z-50">
+        <div class="flex flex-col items-center max-w-md w-full">
+            
+            <h3 class="text-lg text-amber-300 font-bold mb-1 title-font">আপনার প্রিমিয়াম ফ্রেম</h3>
+            <p class="text-xs text-gray-400 mb-4 font-medium"><i class="fa-solid fa-hand-pointer text-amber-500 mr-1"></i> ছবিতে চাপ দিয়ে ধরে (Long-press) সেইভ করতে পারবেন</p>
+            
+            <!-- HD Generated Image Output -->
+            <div class="w-full relative shadow-[0_20px_30px_rgba(0,0,0,0.8)] rounded-xl overflow-hidden border-2 border-amber-500/50 bg-gray-900 flex justify-center items-center min-h-[300px]">
+                <img id="finalGeneratedImage" src="" alt="Premium Frame" class="w-full h-auto object-contain">
+                
+                <!-- Loading State inside image area -->
+                <div id="frameLoadingState" class="absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-10 hidden">
+                    <i class="fa-solid fa-circle-notch fa-spin text-4xl text-amber-400 mb-3"></i>
+                    <p class="text-sm text-emerald-200">ফ্রেম তৈরি হচ্ছে...</p>
+                </div>
+            </div>
+
+            <p class="text-emerald-300 text-xs mt-4 mb-4 text-center">আপনার তথ্যটি সফলভাবে জমা হয়েছে এবং অনুমোদনের অপেক্ষায় আছে।</p>
+
+            <div class="flex gap-3 w-full">
+                <button onclick="downloadFinalFrame(this)" class="flex-1 bg-amber-500 hover:bg-amber-400 text-black font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm">
+                    <i class="fa-solid fa-download"></i> ডাউনলোড
+                </button>
+                <button onclick="closeFrameModal()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2.5 rounded-xl transition shadow-lg text-sm">
+                    বন্ধ করুন
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="adminModal" class="fixed inset-0 bg-black/95 backdrop-blur-xl hidden justify-center items-start pt-10 px-4 z-50 overflow-y-auto">
+        <div class="glass-card rounded-2xl p-6 max-w-5xl w-full mb-10 border-t-4 border-amber-500">
+            <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-amber-400 title-font">এডমিন ড্যাশবোর্ড</h3>
+                    <p class="text-sm text-emerald-300">সহযোগী ব্যবস্থাপনা ও রিপোর্ট প্যানেল</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="window.printReport()" class="no-print bg-amber-500 hover:bg-amber-400 text-black font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 shadow-lg transition">
+                        <i class="fa-solid fa-print"></i> প্রিন্ট / PDF রিপোর্ট
+                    </button>
+                    <button onclick="closeAdminModal()" class="no-print text-gray-400 hover:text-red-400 text-3xl transition">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="bg-emerald-950/50 p-5 rounded-xl border border-emerald-700/50 flex justify-between items-center">
+                    <div>
+                        <p class="text-emerald-200 text-sm mb-1">সর্বমোট গৃহীত সহযোগিতা (Approved)</p>
+                        <h4 id="totalApprovedFund" class="text-3xl font-bold text-emerald-400">০ ৳</h4>
+                    </div>
+                    <i class="fa-solid fa-handshake text-4xl text-emerald-600 opacity-50"></i>
+                </div>
+                <div class="bg-amber-950/50 p-5 rounded-xl border border-amber-700/50 flex justify-between items-center">
+                    <div>
+                        <p class="text-amber-200 text-sm mb-1">অপেক্ষমাণ সহযোগিতা (Pending)</p>
+                        <h4 id="totalPendingFund" class="text-3xl font-bold text-amber-400">০ ৳</h4>
+                    </div>
+                    <i class="fa-solid fa-hourglass-half text-4xl text-amber-600 opacity-50"></i>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="overflow-x-auto rounded-xl border border-gray-700 shadow-xl">
+                <table class="w-full text-left text-sm text-gray-300 whitespace-nowrap">
+                    <thead class="bg-emerald-900/80 text-amber-300 uppercase text-xs">
+                        <tr>
+                            <th class="p-4">তারিখ</th>
+                            <th class="p-4">সহযোগীর নাম ও পদবী</th>
+                            <th class="p-4">পরিমাণ</th>
+                            <th class="p-4">মাধ্যম / বিবরণ</th>
+                            <th class="p-4 text-center">স্ট্যাটাস</th>
+                            <th class="p-4 text-right no-print">অ্যাকশন</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminList" class="divide-y divide-gray-800 bg-black/40">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden text-center py-10 text-gray-500">
+                <i class="fa-solid fa-folder-open text-4xl mb-3 opacity-50"></i>
+                <p>কোনো তথ্য পাওয়া যায়নি</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Firebase SDK Integration & Main JS -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, push, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyDC0gAAMYoHFlGdGNd_pf4u8FESYD92HRA",
+          authDomain: "ycbevent-92d2e.firebaseapp.com",
+          databaseURL: "https://ycbevent-92d2e-default-rtdb.firebaseio.com",
+          projectId: "ycbevent-92d2e",
+          storageBucket: "ycbevent-92d2e.firebasestorage.app",
+          messagingSenderId: "72486979595",
+          appId: "1:72486979595:web:2d26a44139a3d7adf9df0e",
+          measurementId: "G-ZQ234L19RT"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const associatesRef = ref(db, 'associates');
+
+        onValue(associatesRef, (snapshot) => {
+            const data = snapshot.val() || {};
+            renderAdminData(data);
+        });
+
+        const defaultPhotoSVG = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="340" height="340" viewBox="0 0 340 340"><rect width="100%" height="100%" fill="%23e5e7eb"/><path d="M170 90 A 55 55 0 1 0 170 200 A 55 55 0 1 0 170 90 Z" fill="%239ca3af"/><circle cx="170" cy="135" r="35" fill="%239ca3af"/><path d="M110 240 C 110 190, 230 190, 230 240 Z" fill="%239ca3af"/></svg>';
+
+        document.getElementById('donorPhoto').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('formImagePreview');
+            if (file) {
+                if (!file.type.match('image.*')) {
+                    alert('দয়া করে শুধুমাত্র ছবি (JPG/PNG/WEBP) সিলেক্ট করুন।');
+                    this.value = '';
+                    preview.classList.add('hidden');
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    preview.src = event.target.result;
+                    preview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '';
+                preview.classList.add('hidden');
+            }
+        });
+
+        window.handleFormSubmit = function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>প্রসেস হচ্ছে...';
+
+            const amount = parseFloat(document.getElementById('donorAmount').value) || 0;
+
+            if (amount < 200) {
+                alert("দুঃখিত, প্রিমিয়াম ফ্রেম পেতে সর্বনিম্ন ২০০ টাকা সহযোগিতা প্রদান করতে হবে।");
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন';
+                return; 
+            }
+
+            const isAnon = document.getElementById('anonymous').checked;
+            const name = isAnon ? 'পরিচয় গোপন' : document.getElementById('donorName').value.trim();
+            const designation = isAnon ? '' : document.getElementById('donorDesignation').value.trim();
+            const method = document.getElementById('paymentMethod').value;
+            const trx = document.getElementById('trxId').value.trim();
+            const receivedBy = document.getElementById('receivedBy').value.trim();
+            
+            const previewImg = document.getElementById('formImagePreview');
+            let finalImageDataUrl = defaultPhotoSVG;
+
+            if (!isAnon && previewImg.src && previewImg.src.startsWith('data:image')) {
+                finalImageDataUrl = previewImg.src;
+            }
+
+            const supportData = {
+                name: name,
+                designation: designation,
+                amount: amount,
+                method: method,
+                detail: method === 'Cash' ? `গ্রহীতা: ${receivedBy}` : `TrxID: ${trx}`,
+                date: new Date().toLocaleDateString('bn-BD'),
+                status: 'Pending',
+                timestamp: Date.now()
+            };
+
+            push(associatesRef, supportData).then(() => {
+                
+                // Hide Donate Modal, Show Frame Modal with Loading
+                document.getElementById('donateModal').classList.add('hidden');
+                document.getElementById('donateModal').classList.remove('flex');
+                
+                document.getElementById('frameModal').classList.remove('hidden');
+                document.getElementById('frameModal').classList.add('flex');
+                
+                document.getElementById('frameLoadingState').classList.remove('hidden');
+                document.getElementById('finalGeneratedImage').src = "";
+
+                // Populate Hidden Frame
+                document.getElementById('frameUserImage').src = finalImageDataUrl;
+                document.getElementById('frameUserName').innerText = name;
+                document.getElementById('frameUserDesignation').innerText = designation;
+
+                // Wait a moment for DOM and Fonts to fully render inside hidden container
+                setTimeout(() => {
+                    const frameElement = document.getElementById('fbFrameExport');
+                    
+                    html2canvas(frameElement, {
+                        scale: 4, // 100% HD Quality Rendering (1600x2400 pixels)
+                        useCORS: true,
+                        allowTaint: true,
+                        backgroundColor: null
+                    }).then(canvas => {
+                        const finalImgUrl = canvas.toDataURL('image/png', 1.0);
+                        
+                        // Set exactly onto the viewable Image Element
+                        document.getElementById('finalGeneratedImage').src = finalImgUrl;
+                        document.getElementById('frameLoadingState').classList.add('hidden');
+
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = 'জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন';
+                        window.resetDonationForm();
+
+                    }).catch(err => {
+                        console.error("Canvas Error:", err);
+                        alert("ফ্রেম তৈরি করতে সমস্যা হয়েছে। ইন্টারনেট কানেকশন চেক করুন।");
+                        document.getElementById('frameLoadingState').classList.add('hidden');
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = 'জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন';
+                    });
+                }, 800); // 800ms delay to ensure image paint
+
+            }).catch(err => {
+                console.error("Firebase Error:", err);
+                alert("দুঃখিত, তথ্য জমা দেওয়া সম্ভব হয়নি। ইন্টারনেটের সংযোগ নিশ্চিত করুন।");
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন';
+            });
+        };
+
+        window.resetDonationForm = function() {
+            const form = document.getElementById('donationForm');
+            if(form) form.reset();
+            
+            document.getElementById('anonymous').checked = false;
+            document.getElementById('personal-fields').style.display = 'block';
+            document.getElementById('photo-wrapper').style.display = 'block';
+            
+            document.getElementById('donorName').setAttribute('required', 'true');
+            document.getElementById('donorPhoto').setAttribute('required', 'true');
+            document.getElementById('donorDesignation').value = '';
+            
+            const preview = document.getElementById('formImagePreview');
+            if (preview) {
+                preview.src = '';
+                preview.classList.add('hidden');
+            }
+            
+            document.getElementById('paymentMethod').value = 'bKash';
+            window.togglePaymentFields();
+        };
+
+        function renderAdminData(data) {
+            const listContainer = document.getElementById('adminList');
+            const emptyState = document.getElementById('emptyState');
+            
+            listContainer.innerHTML = '';
+            let totalApproved = 0;
+            let totalPending = 0;
+
+            const keys = Object.keys(data);
+
+            if(keys.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                const sortedKeys = keys.sort((a,b) => (data[b].timestamp || 0) - (data[a].timestamp || 0));
+
+                sortedKeys.forEach(key => {
+                    const item = data[key];
+                    if(item.status === 'Approved') totalApproved += (item.amount || 0);
+                    if(item.status === 'Pending') totalPending += (item.amount || 0);
+
+                    const statusBadge = item.status === 'Approved' 
+                        ? `<span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-2 py-1 rounded text-[10px] font-bold"><i class="fa-solid fa-check mr-1"></i>Approved</span>`
+                        : `<span class="bg-amber-500/20 text-amber-400 border border-amber-500/50 px-2 py-1 rounded text-[10px] font-bold"><i class="fa-solid fa-clock mr-1"></i>Pending</span>`;
+
+                    const actionBtn = item.status === 'Pending'
+                        ? `<button onclick="updateStatus('${key}', 'Approved')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-md text-xs font-bold transition mr-2" title="Approve"><i class="fa-solid fa-check"></i></button>`
+                        : `<button onclick="updateStatus('${key}', 'Pending')" class="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1.5 rounded-md text-xs font-bold transition mr-2" title="Mark Pending"><i class="fa-solid fa-rotate-left"></i></button>`;
+
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-gray-800/50 transition";
+                    tr.innerHTML = `
+                        <td class="p-4 text-xs text-gray-400">${item.date || ''}</td>
+                        <td class="p-4">
+                            <div class="flex items-start gap-2">
+                                <i class="fa-solid fa-user-circle text-amber-400 text-lg mt-1"></i>
+                                <div>
+                                    <span class="font-bold text-amber-200 block">${item.name || 'পরিচয় গোপন'}</span>
+                                    <span class="text-[11px] text-gray-400 block">${item.designation || ''}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-4 font-bold text-emerald-400 text-base">${item.amount || 0} ৳</td>
+                        <td class="p-4 text-xs">
+                            <span class="text-amber-400 font-bold">${item.method || ''}</span><br>
+                            <span class="text-gray-400">${item.detail || ''}</span>
+                        </td>
+                        <td class="p-4 text-center">${statusBadge}</td>
+                        <td class="p-4 text-right no-print">
+                            ${actionBtn}
+                            <button onclick="deleteEntry('${key}')" class="bg-red-900/80 hover:bg-red-600 text-white px-3 py-1.5 rounded-md text-xs font-bold transition border border-red-700" title="Delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    `;
+                    listContainer.appendChild(tr);
+                });
+            }
+
+            document.getElementById('totalApprovedFund').innerText = totalApproved.toLocaleString('bn-BD') + " ৳";
+            document.getElementById('totalPendingFund').innerText = totalPending.toLocaleString('bn-BD') + " ৳";
+        }
+
+        window.updateStatus = function(key, newStatus) {
+            const itemRef = ref(db, `associates/${key}`);
+            update(itemRef, { status: newStatus });
+        };
+
+        window.deleteEntry = function(key) {
+            if(confirm("আপনি কি নিশ্চিত যে এই রেকর্ডটি মুছে ফেলতে চান?")) {
+                const itemRef = ref(db, `associates/${key}`);
+                remove(itemRef);
+            }
+        };
+
+        window.printReport = function() { window.print(); };
+    </script>
+
+    <!-- General UI JS Helpers & Countdown & Fixed Canvas Download -->
+    <script>
+        const eventDate = new Date("August 27, 2026 00:00:00").getTime();
+        
+        const cdInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            
+            if (distance < 0) {
+                clearInterval(cdInterval);
+                document.getElementById("cd-days").innerText = "00";
+                document.getElementById("cd-hours").innerText = "00";
+                document.getElementById("cd-minutes").innerText = "00";
+                document.getElementById("cd-seconds").innerText = "00";
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("cd-days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("cd-hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("cd-minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("cd-seconds").innerText = seconds.toString().padStart(2, '0');
+        }, 1000);
+
+        function copyNumber() {
+            navigator.clipboard.writeText('01763752653');
+            const msg = document.getElementById('copy-msg');
+            msg.classList.remove('hidden');
+            setTimeout(() => msg.classList.add('hidden'), 2500);
+        }
+
+        function toggleAnonymous() {
+            const isAnon = document.getElementById('anonymous').checked;
+            const personalFields = document.getElementById('personal-fields');
+            const photoWrapper = document.getElementById('photo-wrapper');
+            const nameInput = document.getElementById('donorName');
+            const designationInput = document.getElementById('donorDesignation');
+            const photoInput = document.getElementById('donorPhoto');
+            const previewImg = document.getElementById('formImagePreview');
+            
+            if (isAnon) {
+                personalFields.style.display = 'none';
+                photoWrapper.style.display = 'none';
+                nameInput.removeAttribute('required');
+                photoInput.removeAttribute('required');
+                nameInput.value = 'পরিচয় গোপন';
+                designationInput.value = '';
+                photoInput.value = '';
+                if(previewImg) { previewImg.src = ''; previewImg.classList.add('hidden'); }
+            } else {
+                personalFields.style.display = 'block';
+                photoWrapper.style.display = 'block';
+                nameInput.setAttribute('required', 'true');
+                photoInput.setAttribute('required', 'true');
+                nameInput.value = '';
+                designationInput.value = '';
+            }
+        }
+
+        function togglePaymentFields() {
+            const method = document.getElementById('paymentMethod').value;
+            const trxWrapper = document.getElementById('trxWrapper');
+            const receiverWrapper = document.getElementById('receiverWrapper');
+            const trxInput = document.getElementById('trxId');
+            
+            if(method === 'Cash') {
+                trxWrapper.classList.add('hidden');
+                receiverWrapper.classList.remove('hidden');
+                trxInput.removeAttribute('required');
+                trxInput.value = '';
+            } else {
+                trxWrapper.classList.remove('hidden');
+                receiverWrapper.classList.add('hidden');
+            }
+        }
+
+        function openDonateModal() {
+            document.getElementById('donateModal').classList.remove('hidden');
+            document.getElementById('donateModal').classList.add('flex');
+            togglePaymentFields(); 
+        }
+        
+        function closeDonateModal() {
+            document.getElementById('donateModal').classList.add('hidden');
+            document.getElementById('donateModal').classList.remove('flex');
+            if(window.resetDonationForm) window.resetDonationForm();
+        }
+
+        function closeFrameModal() {
+            document.getElementById('frameModal').classList.add('hidden');
+            document.getElementById('frameModal').classList.remove('flex');
+        }
+
+        // New Direct Image Download Function
+        function downloadFinalFrame(btn) {
+            const imgSrc = document.getElementById('finalGeneratedImage').src;
+            if(!imgSrc || imgSrc === "") return alert("একটু অপেক্ষা করুন, ছবি তৈরি হচ্ছে...");
+            
+            const link = document.createElement('a');
+            link.download = 'Miladunnabi-Proud-Associate.png';
+            link.href = imgSrc;
+            link.click();
+        }
+
+        function openAdminPrompt() {
+            const pass = prompt("এডমিন পিন দিন:");
+            if (pass === "admin123" || pass === "rafi" || pass === "1234" || pass === "admin") { 
+                document.getElementById('adminModal').classList.remove('hidden');
+                document.getElementById('adminModal').classList.add('flex');
+            } else if (pass !== null) {
+                alert("ভুল পিন কোড!");
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+            document.getElementById('adminModal').classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
