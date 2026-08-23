@@ -405,37 +405,20 @@
             </div>
         </div>
 
-        <!-- ID Card Export Layout -->
-        <div id="idCardExport" style="width: 380px; height: 580px; background: linear-gradient(135deg, #064e3b 0%, #000000 100%); border: 3px solid #d4af37; border-radius: 20px; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; padding: 25px 20px;">
-            <div style="position: absolute; top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(212, 175, 55, 0.2); border-radius: 50%; filter: blur(30px);"></div>
-            <div style="position: absolute; bottom: -50px; right: -50px; width: 150px; height: 150px; background: rgba(16, 185, 129, 0.2); border-radius: 50%; filter: blur(30px);"></div>
+        <!-- ID Card Export Layout (Now matching the Frame template layout) -->
+        <div id="idCardExport" style="width: 400px; height: 600px; background-color: #fff; position: relative; overflow: hidden;">
+            <img src="https://i.ibb.co.com/7xHXCL66/Pixellab-ST-20260822-023401.jpg" alt="Template" crossorigin="anonymous" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
             
-            <h2 style="font-family: 'Tiro Bangla', serif; font-size: 26px; font-weight: bold; color: #fef08a; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); z-index: 10;">ইয়ুথ কমিউনিটি বড়াইগ্রাম</h2>
-            <p style="font-family: 'Hind Siliguri', sans-serif; font-size: 14px; color: #a7f3d0; margin: 2px 0 20px 0; z-index: 10; letter-spacing: 2px; font-weight: bold; text-transform: uppercase;">অফিসিয়াল পরিচয়পত্র</p>
+            <div style="position: absolute; top: 32.5%; left: 24.5%; width: 51%; height: 35.5%; z-index: 2; overflow: hidden; border-radius: 8px;">
+                <img id="exportIdImage" src="" alt="User Image" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             
-            <div style="width: 160px; height: 160px; border-radius: 50%; border: 4px solid #d4af37; padding: 4px; background: rgba(0,0,0,0.5); z-index: 10; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
-                <img id="exportIdImage" src="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+            <div style="position: absolute; top: 68.5%; left: 8%; width: 84%; text-align: center; z-index: 3;">
+                <h4 id="exportIdName" style="color: #fff; font-weight: bold; font-size: 19px; font-family: 'Hind Siliguri', sans-serif; margin: 0; display: inline-block; width: 100%;">নাম</h4>
             </div>
 
-            <div style="text-align: center; margin-top: 25px; z-index: 10; width: 100%;">
-                <h3 id="exportIdName" style="font-family: 'Hind Siliguri', sans-serif; font-size: 30px; font-weight: 800; color: #ffffff; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">নাম</h3>
-                <p id="exportIdDesignation" style="font-family: 'Hind Siliguri', sans-serif; font-size: 18px; color: #fef08a; margin: 5px 0 15px 0; font-weight: 600;">পদবী</p>
-            </div>
-
-            <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; width: 90%; padding: 15px; margin-top: auto; margin-bottom: 20px; z-index: 10;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-                    <span style="color: #6ee7b7; font-weight: bold; font-family: 'Hind Siliguri', sans-serif; font-size: 16px;">মোবাইল:</span>
-                    <span id="exportIdMobile" style="color: #ffffff; font-family: 'Hind Siliguri', sans-serif; font-size: 16px; font-weight: 600;">01XXX</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #6ee7b7; font-weight: bold; font-family: 'Hind Siliguri', sans-serif; font-size: 16px;">রক্তের গ্রুপ:</span>
-                    <span id="exportIdBlood" style="color: #ef4444; font-family: 'Hind Siliguri', sans-serif; font-size: 18px; font-weight: 800;">A+</span>
-                </div>
-            </div>
-
-            <div style="width: 100%; border-top: 1px dashed rgba(212, 175, 55, 0.5); padding-top: 15px; text-align: center; z-index: 10;">
-                <p style="font-family: 'Hind Siliguri', sans-serif; font-size: 12px; color: #9ca3af; margin: 0;">কর্তৃপক্ষ কর্তৃক অনুমোদিত</p>
-                <p style="font-family: 'Hind Siliguri', sans-serif; font-size: 10px; color: #6b7280; margin: 2px 0 0 0;">ID: YCB-2026</p>
+            <div style="position: absolute; top: 76.5%; left: 8%; width: 84%; text-align: center; z-index: 3;">
+                <p id="exportIdDesignation" style="color: #fef08a; font-weight: 500; font-size: 14px; font-family: 'Hind Siliguri', sans-serif; margin: 0; display: inline-block; width: 100%;">পদবী</p>
             </div>
         </div>
     </div>
@@ -748,8 +731,8 @@
                 document.getElementById('exportIdImage').src = finalImageDataUrl;
                 document.getElementById('exportIdName').innerText = name;
                 document.getElementById('exportIdDesignation').innerText = designation;
-                document.getElementById('exportIdMobile').innerText = mobile;
-                document.getElementById('exportIdBlood').innerText = blood;
+                
+                // Removed Mobile & Blood Group assignments as the new frame doesn't have them
 
                 setTimeout(() => {
                     generateCanvas('idCardExport', 'YCB-ID-Card', submitBtn, '<i class="fa-solid fa-id-card"></i> আইডি কার্ড তৈরি করুন', () => { document.getElementById('idCardForm').reset(); document.getElementById('idImagePreview').classList.add('hidden'); });
@@ -953,8 +936,7 @@
                 document.getElementById('exportIdImage').src = item.photoUrl || defaultPhotoSVG;
                 document.getElementById('exportIdName').innerText = item.name || '';
                 document.getElementById('exportIdDesignation').innerText = item.designation || '';
-                document.getElementById('exportIdMobile').innerText = item.mobile || '';
-                document.getElementById('exportIdBlood').innerText = item.blood || '-';
+                // Removed Mobile & Blood Group references since they are not used in the frame template
             }
             if(!item) return;
 
