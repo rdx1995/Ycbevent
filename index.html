@@ -16,7 +16,7 @@
     <style>
         body {
             font-family: 'Hind Siliguri', sans-serif;
-            background: linear-gradient(135deg, rgba(1, 20, 10, 0.98) 0%, rgba(0, 0, 0, 0.98) 100%), 
+            background: linear-gradient(135deg, rgba(2, 26, 15, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%), 
                         url('https://i.ibb.co.com/60w75Tqf/Free-Islamic-template-1.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
@@ -27,53 +27,36 @@
         }
         .title-font { font-family: 'Tiro Bangla', serif; }
         .glass-card {
-            background: rgba(6, 35, 20, 0.75);
+            background: rgba(8, 42, 25, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
         }
         .gold-text-gradient {
             background: linear-gradient(to right, #fef08a, #d4af37, #fef08a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .gold-border { border: 2px solid rgba(212, 175, 55, 0.6); }
+        .hero-glow {
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.15);
+        }
 
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #021a0f; }
         ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
 
-        /* Print / PDF Styling */
         @media print {
             body * { visibility: hidden; }
             #adminModal, #adminModal * { visibility: visible; }
             #adminModal {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                background: #fff !important;
-                color: #000 !important;
-                padding: 0 !important;
+                position: absolute; left: 0; top: 0; width: 100%;
+                background: #fff !important; color: #000 !important; padding: 0 !important;
             }
             .no-print { display: none !important; }
-            .glass-card {
-                background: #fff !important;
-                color: #000 !important;
-                border: 1px solid #ccc !important;
-                box-shadow: none !important;
-            }
-            table {
-                color: #000 !important;
-                width: 100% !important;
-                border-collapse: collapse !important;
-            }
-            th, td {
-                border: 1px solid #444 !important;
-                color: #000 !important;
-                padding: 8px !important;
-            }
+            .glass-card { background: #fff !important; color: #000 !important; border: 1px solid #ccc !important; box-shadow: none !important; }
+            table { color: #000 !important; width: 100% !important; border-collapse: collapse !important; }
+            th, td { border: 1px solid #444 !important; color: #000 !important; padding: 8px !important; }
             thead { background-color: #e5e7eb !important; }
         }
     </style>
@@ -84,28 +67,28 @@
     <header class="w-full p-4 glass-card sticky top-0 z-40 border-b border-amber-500/30">
         <div class="max-w-6xl mx-auto flex justify-between items-center px-2">
             <a href="https://youth-community-baraigram.vercel.app/" target="_blank" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg shadow-amber-500/30 group-hover:scale-105 transition">
-                    <i class="fa-solid fa-kaaba text-emerald-950 text-lg"></i>
+                <div class="w-11 h-11 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-500/30 group-hover:scale-105 transition">
+                    <i class="fa-solid fa-kaaba text-emerald-950 text-xl"></i>
                 </div>
                 <div>
-                    <span class="block text-[10px] text-amber-300/80 uppercase font-bold tracking-widest">অফিসিয়াল প্ল্যাটফর্ম</span>
+                    <span class="block text-[10px] text-amber-300/80 uppercase font-extrabold tracking-widest">অফিসিয়াল প্ল্যাটফর্ম</span>
                     <span class="font-bold text-lg md:text-xl text-amber-400 tracking-wide title-font group-hover:underline">ইয়ুথ কমিউনিটি বড়াইগ্রাম</span>
                 </div>
             </a>
-            <a href="https://youth-community-baraigram.vercel.app/" target="_blank" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/40 px-3.5 py-1.5 rounded-full text-sm transition flex items-center gap-1.5 font-semibold">
-                <i class="fa-solid fa-globe"></i> <span>ওয়েবসাইট</span>
+            <a href="https://youth-community-baraigram.vercel.app/" target="_blank" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/40 px-4 py-2 rounded-xl text-sm transition flex items-center gap-2 font-semibold shadow-md">
+                <i class="fa-solid fa-globe"></i> <span class="hidden sm:inline">ওয়েবসাইট</span>
             </a>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="container mx-auto px-4 py-8 max-w-4xl flex-grow flex flex-col items-center justify-center">
+    <main class="container mx-auto px-4 py-10 max-w-4xl flex-grow flex flex-col items-center justify-center">
         
         <!-- Hero Section -->
-        <div class="text-center space-y-5 mb-10 w-full relative">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl -z-10"></div>
+        <div class="text-center space-y-6 mb-12 w-full relative">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl -z-10"></div>
 
-            <div class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 border border-amber-500/40 px-6 py-2 rounded-full shadow-lg">
+            <div class="inline-flex items-center gap-2.5 bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 border border-amber-500/40 px-6 py-2 rounded-full shadow-lg">
                 <i class="fa-solid fa-moon text-amber-300 text-sm"></i>
                 <span class="text-amber-200 text-sm md:text-base font-semibold tracking-wide title-font">বিসমিল্লাহির রহমানির রহিম</span>
                 <i class="fa-solid fa-moon text-amber-300 text-sm"></i>
@@ -114,43 +97,46 @@
             <h1 class="text-3xl md:text-5xl font-extrabold leading-tight gold-text-gradient drop-shadow-2xl title-font py-1">
                 পবিত্র ঈদ-এ-মিলাদুন্নবী (সা.) ১৪৪৬ হিজরি
             </h1>
-            <p class="text-lg md:text-xl text-emerald-200 font-medium tracking-wide">
+            <p class="text-base md:text-xl text-emerald-200/90 font-medium tracking-wide max-w-2xl mx-auto">
                 মহান আল্লাহর রাসুল (সা.) এর শুভাগমন উপলক্ষে দোয়া, মিলাদ, কিয়াম ও ইসলামিক সাংস্কৃতিক অনুষ্ঠান
             </p>
 
-            <div class="glass-card p-5 rounded-2xl max-w-2xl mx-auto border border-amber-500/40 mt-6 shadow-2xl">
-                <p class="text-emerald-300 text-base md:text-lg font-bold flex items-center justify-center gap-2 mb-2">
+            <div class="glass-card hero-glow p-6 rounded-3xl max-w-2xl mx-auto border border-amber-500/40 mt-8 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-xl"></div>
+                <p class="text-amber-300 text-base md:text-lg font-bold flex items-center justify-center gap-2.5 mb-3">
                     <i class="fa-solid fa-location-dot text-amber-400 animate-bounce"></i> 
                     স্থান: বড়াইগ্রাম পৌর মাঠ প্রাঙ্গন
                 </p>
-                <div class="text-xs md:text-sm text-amber-200/90 font-medium border-t border-emerald-800/60 pt-3 space-y-1">
-                    <p><span class="text-gray-400">আয়োজনে:</span> ইয়ুথ কমিউনিটি বড়াইগ্রাম</p>
+                <div class="text-xs md:text-sm text-emerald-200 font-medium border-t border-emerald-800/60 pt-3 space-y-1.5">
+                    <p><span class="text-gray-400">আয়োজনে:</span> <strong class="text-amber-300">ইয়ুথ কমিউনিটি বড়াইগ্রাম</strong></p>
                     <p><span class="text-gray-400">সার্বিক তত্ত্বাবধানে:</span> বড়াইগ্রাম পৌরসভা ও লক্ষিকোল বাজার কেন্দ্রীয় জামে মসজিদ কমিটি</p>
                 </div>
             </div>
         </div>
 
         <!-- Event Countdown Section -->
-        <div class="glass-card rounded-2xl p-6 md:p-8 max-w-3xl mx-auto border border-amber-500/40 mb-10 shadow-2xl relative overflow-hidden w-full">
+        <div class="glass-card rounded-3xl p-6 md:p-8 max-w-3xl mx-auto border border-amber-500/40 mb-12 shadow-2xl relative overflow-hidden w-full">
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl"></div>
             <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl"></div>
             
-            <h2 class="text-xl md:text-2xl font-bold text-center text-amber-400 mb-6 title-font">অনুষ্ঠান শুরু হতে আর বাকি</h2>
+            <h2 class="text-xl md:text-2xl font-bold text-center text-amber-400 mb-6 title-font flex items-center justify-center gap-2">
+                <i class="fa-solid fa-clock text-amber-500"></i> অনুষ্ঠান শুরু হতে আর বাকি
+            </h2>
             
             <div class="flex justify-center gap-3 md:gap-6 text-center z-10 relative">
-                <div class="bg-black/40 border border-emerald-700/50 rounded-xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm">
+                <div class="bg-black/50 border border-emerald-700/50 rounded-2xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm shadow-inner">
                     <span id="cd-days" class="block text-3xl md:text-5xl font-bold text-white mb-1">00</span>
                     <span class="text-xs md:text-sm text-amber-200">দিন</span>
                 </div>
-                <div class="bg-black/40 border border-emerald-700/50 rounded-xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm">
+                <div class="bg-black/50 border border-emerald-700/50 rounded-2xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm shadow-inner">
                     <span id="cd-hours" class="block text-3xl md:text-5xl font-bold text-white mb-1">00</span>
                     <span class="text-xs md:text-sm text-amber-200">ঘণ্টা</span>
                 </div>
-                <div class="bg-black/40 border border-emerald-700/50 rounded-xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm">
+                <div class="bg-black/50 border border-emerald-700/50 rounded-2xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm shadow-inner">
                     <span id="cd-minutes" class="block text-3xl md:text-5xl font-bold text-white mb-1">00</span>
                     <span class="text-xs md:text-sm text-amber-200">মিনিট</span>
                 </div>
-                <div class="bg-black/40 border border-emerald-700/50 rounded-xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm">
+                <div class="bg-black/50 border border-emerald-700/50 rounded-2xl p-3 md:p-4 w-20 md:w-28 backdrop-blur-sm shadow-inner">
                     <span id="cd-seconds" class="block text-3xl md:text-5xl font-bold text-emerald-400 mb-1">00</span>
                     <span class="text-xs md:text-sm text-amber-200">সেকেন্ড</span>
                 </div>
@@ -159,10 +145,10 @@
 
         <!-- Action Section -->
         <div class="text-center mb-6">
-            <button onclick="openDonateModal()" class="group relative px-8 py-4 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-emerald-950 font-bold text-lg md:text-xl rounded-full shadow-[0_0_25px_rgba(212,175,55,0.5)] hover:shadow-[0_0_35px_rgba(212,175,55,0.8)] hover:scale-105 transition-all duration-300 overflow-hidden">
-                <i class="fa-solid fa-hand-holding-heart mr-2"></i> আয়োজনের গর্বিত সহযোগী হোন
+            <button onclick="openDonateModal()" class="group relative px-9 py-4 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-emerald-950 font-extrabold text-lg md:text-xl rounded-full shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:shadow-[0_0_40px_rgba(212,175,55,0.8)] hover:scale-105 transition-all duration-300 overflow-hidden flex items-center gap-3 mx-auto">
+                <i class="fa-solid fa-hand-holding-heart text-2xl"></i> আয়োজনের গর্বিত সহযোগী হোন
             </button>
-            <p class="text-emerald-300 text-xs md:text-sm mt-3">সহযোগিতা প্রদান করে প্রিমিয়াম পোস্টার ফ্রেম সংগ্রহ করুন</p>
+            <p class="text-emerald-300 text-xs md:text-sm mt-3.5 font-medium">সহযোগিতা প্রদান করে মুহূর্তেই সংগ্রহ করুন আপনার প্রিমিয়াম পোস্টার ফ্রেম</p>
         </div>
     </main>
 
@@ -171,7 +157,7 @@
         <div class="container mx-auto px-4 text-center">
             <p class="text-gray-400 text-sm mb-2">© ২০২৬ ইয়ুথ কমিউনিটি বড়াইগ্রাম। সর্বস্বত্ব সংরক্ষিত।</p>
             <div class="flex justify-center items-center gap-4 text-xs text-emerald-600">
-                <button onclick="openAdminPrompt()" class="hover:text-amber-500 transition cursor-pointer flex items-center gap-1">
+                <button onclick="openAdminPrompt()" class="hover:text-amber-500 transition cursor-pointer flex items-center gap-1 font-semibold">
                     <i class="fa-solid fa-lock"></i> এডমিন প্যানেল
                 </button>
                 <span>|</span>
@@ -182,113 +168,142 @@
         </div>
     </footer>
 
-    <!-- Support Form Modal -->
+    <!-- Smart Support Form Modal -->
     <div id="donateModal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden justify-center items-center p-4 z-50">
-        <div class="glass-card rounded-2xl p-6 md:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto relative border-2 border-amber-500/50 shadow-2xl">
+        <div class="glass-card rounded-3xl p-6 md:p-8 max-w-md w-full max-h-[95vh] overflow-y-auto relative border-2 border-amber-500/50 shadow-2xl">
             <button onclick="closeDonateModal()" class="absolute top-4 right-4 text-amber-300 hover:text-white text-2xl transition">
                 <i class="fa-solid fa-circle-xmark"></i>
             </button>
             
-            <h3 class="text-2xl font-bold text-amber-400 text-center mb-1 title-font">
+            <h3 class="text-2xl font-extrabold text-amber-400 text-center mb-1 title-font">
                 গর্বিত সহযোগী ফরম
             </h3>
-            <p class="text-xs text-center text-emerald-200 mb-5 border-b border-emerald-800 pb-3">তথ্য পূরণ করে প্রিমিয়াম ফ্রেম নিন</p>
+            <p class="text-xs text-center text-emerald-200 mb-5 border-b border-emerald-800 pb-3">তথ্য পূরণ করে আপনার প্রিমিয়াম ফ্রেম সংগ্রহ করুন</p>
 
             <!-- Payment Info -->
-            <div class="bg-gradient-to-r from-emerald-950 to-black p-4 rounded-xl mb-5 border border-amber-500/30 text-center shadow-inner">
+            <div class="bg-gradient-to-r from-emerald-950 to-black p-4 rounded-2xl mb-5 border border-amber-500/30 text-center shadow-inner">
                 <p class="text-xs text-emerald-200 mb-1">বিকাশ / নগদ (Send Money)</p>
-                <div class="flex justify-center items-center gap-3 bg-black/50 py-2 px-4 rounded-lg inline-flex">
+                <div class="flex justify-center items-center gap-3 bg-black/50 py-2 px-4 rounded-xl inline-flex">
                     <span class="text-lg font-bold text-amber-400 tracking-wider">01763752653</span>
                     <button onclick="copyNumber()" class="text-amber-400 hover:text-white transition text-sm">
                         <i class="fa-regular fa-copy"></i> কপি
                     </button>
                 </div>
-                <p id="copy-msg" class="text-xs text-amber-300 mt-1 hidden">নাম্বারটি কপি করা হয়েছে!</p>
+                <p id="copy-msg" class="text-xs text-amber-300 mt-1.5 hidden">নাম্বারটি কপি করা হয়েছে!</p>
             </div>
 
             <!-- Form -->
             <form id="donationForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
                 
                 <!-- Anonymous Checkbox -->
-                <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-emerald-800/80">
+                <div class="flex items-center gap-2.5 bg-black/40 p-3 rounded-2xl border border-emerald-800/80 hover:border-amber-500/50 transition">
                     <input type="checkbox" id="anonymous" onchange="toggleAnonymous()" class="w-4 h-4 accent-amber-500 cursor-pointer">
                     <label for="anonymous" class="text-xs md:text-sm cursor-pointer text-amber-200 font-medium">পরিচয় গোপন রেখে সহযোগী হতে চাই</label>
                 </div>
 
-                <div id="personal-fields" class="space-y-4">
+                <div id="personal-fields" class="space-y-3.5">
                     <div>
-                        <label class="block text-xs font-medium text-amber-200 mb-1">আপনার নাম *</label>
-                        <input type="text" id="donorName" required class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm">
+                        <label class="block text-[11px] font-semibold text-amber-200/80 mb-1 uppercase tracking-wider">আপনার নাম *</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-user text-amber-500/70"></i>
+                            </div>
+                            <input type="text" id="donorName" required class="w-full pl-10 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition outline-none text-sm" placeholder="আপনার সম্পূর্ণ নাম">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-semibold text-amber-200/80 mb-1 uppercase tracking-wider">মোবাইল নাম্বার *</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-phone text-amber-500/70"></i>
+                            </div>
+                            <input type="tel" id="mobileNumber" required class="w-full pl-10 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition outline-none text-sm" placeholder="01XXXXXXXXX">
+                        </div>
                     </div>
                     
                     <div>
-                        <label class="block text-xs font-medium text-amber-200 mb-1">মোবাইল নাম্বার *</label>
-                        <input type="tel" id="donorMobile" required class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm" placeholder="উদা: 01712345678">
+                        <label class="block text-[11px] font-semibold text-amber-200/80 mb-1 uppercase tracking-wider">আপনার পদবী / ঠিকানা (ঐচ্ছিক)</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-briefcase text-amber-500/70"></i>
+                            </div>
+                            <input type="text" id="donorDesignation" class="w-full pl-10 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition outline-none text-sm" placeholder="উদা: সদস্য, ইয়ুথ কমিউনিটি">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SMART IMAGE UPLOAD -->
+                <div id="photo-wrapper" class="bg-black/30 p-3.5 rounded-2xl border border-emerald-700/50">
+                    <label class="block text-[11px] font-semibold text-amber-200/80 mb-2 uppercase tracking-wider">আপনার সুন্দর ছবি (ফ্রেমের জন্য) *</label>
+                    <div class="flex items-center gap-3">
+                        <img id="formImagePreview" src="" class="hidden w-14 h-14 rounded-xl border border-amber-500/50 object-cover shadow-md">
+                        <input type="file" id="donorPhoto" accept="image/*" required class="w-full text-xs text-emerald-200 file:mr-2 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-black hover:file:bg-amber-400 cursor-pointer outline-none transition">
+                    </div>
+                    <p class="text-[10px] text-emerald-300/60 mt-2"><i class="fa-solid fa-compress mr-1"></i> ছবি স্বয়ংক্রিয়ভাবে অপ্টিমাইজ (২০-৩০ KB) হয়ে যাবে।</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-semibold text-amber-200/80 mb-1 uppercase tracking-wider">পরিমাণ (৳) *</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-bangladeshi-taka-sign text-amber-500/70"></i>
+                            </div>
+                            <input type="number" id="donorAmount" required min="200" class="w-full pl-8 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition outline-none text-sm" placeholder="উদা: ২০০">
+                        </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-medium text-amber-200 mb-1">আপনার পদবী / ঠিকানা (ঐচ্ছিক)</label>
-                        <input type="text" id="donorDesignation" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm" placeholder="উদা: সদস্য, ইয়ুথ কমিউনিটি">
+                        <label class="block text-[11px] font-semibold text-amber-200/80 mb-1 uppercase tracking-wider">পেমেন্ট মাধ্যম *</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-wallet text-amber-500/70"></i>
+                            </div>
+                            <select id="paymentMethod" onchange="togglePaymentFields()" class="w-full pl-8 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition outline-none text-sm appearance-none cursor-pointer">
+                                <option value="bKash">বিকাশ</option>
+                                <option value="Nagad">নগদ</option>
+                                <option value="Cash">সরাসরি</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                <p class="text-[10px] text-amber-400/80 mb-2 text-center">* প্রিমিয়াম ফ্রেম পেতে সর্বনিম্ন ২০০ টাকা প্রযোজ্য</p>
 
-                <!-- LIVE PREVIEW -->
-                <div id="photo-wrapper">
-                    <label class="block text-xs font-medium text-amber-200 mb-1">আপনার সুন্দর ছবি (ফ্রেমের জন্য) *</label>
-                    <div class="flex items-center gap-3 bg-black/50 p-2 rounded-lg border border-emerald-700/60">
-                        <img id="formImagePreview" src="" class="hidden w-12 h-12 rounded border-2 border-amber-500/50 object-cover bg-gray-800 shadow-md">
-                        <input type="file" id="donorPhoto" accept="image/*" required class="w-full text-xs text-emerald-200 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-black hover:file:bg-amber-400 cursor-pointer outline-none">
+                <div id="trxWrapper" class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                        <i class="fa-solid fa-hashtag text-amber-500/70"></i>
                     </div>
-                    <p class="text-[10px] text-gray-400 mt-1">ছবি সিলেক্ট করার পর এখানে প্রিভিউ দেখতে পাবেন।</p>
+                    <input type="text" id="trxId" placeholder="Transaction ID (TrxID) লিখুন" class="w-full pl-10 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition outline-none text-sm">
                 </div>
 
-                <div>
-                    <label class="block text-xs font-medium text-amber-200 mb-1">সহযোগিতার পরিমাণ (৳) *</label>
-                    <input type="number" id="donorAmount" required min="200" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm" placeholder="উদা: ২০০">
-                    <p class="text-[10px] text-amber-400/80 mt-1">* প্রিমিয়াম ফ্রেম পেতে সর্বনিম্ন ২০০ টাকা প্রযোজ্য</p>
+                <div id="receiverWrapper" class="relative hidden">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                        <i class="fa-solid fa-handshake text-amber-500/70"></i>
+                    </div>
+                    <input type="text" id="receivedBy" placeholder="যার কাছে টাকা দিয়েছেন তার নাম" class="w-full pl-10 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition outline-none text-sm">
                 </div>
 
-                <div>
-                    <label class="block text-xs font-medium text-amber-200 mb-1">কীভাবে সহযোগিতা পাঠিয়েছেন? *</label>
-                    <select id="paymentMethod" onchange="togglePaymentFields()" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white outline-none mb-3 text-sm">
-                        <option value="bKash">bKash (বিকাশ)</option>
-                        <option value="Nagad">Nagad (ন নগদ)</option>
-                        <option value="Cash">সরাসরি (Cash)</option>
-                    </select>
-
-                    <div id="trxWrapper">
-                        <input type="text" id="trxId" placeholder="Transaction ID (TrxID)" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm">
-                    </div>
-
-                    <div id="receiverWrapper" class="hidden">
-                        <input type="text" id="receivedBy" placeholder="যার কাছে টাকা জমা দিয়েছেন তার নাম" class="w-full bg-black/50 border border-emerald-700/60 rounded-lg p-2.5 text-white focus:border-amber-400 outline-none text-sm">
-                    </div>
-                </div>
-
-                <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-emerald-950 font-bold py-3 rounded-xl transition duration-300 shadow-lg text-sm">
-                    জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন
+                <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-emerald-950 font-extrabold py-3.5 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm flex items-center justify-center gap-2 mt-2">
+                    <i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন ও ফ্রেম দেখুন
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Hidden Pre-render Container (For 100% HD Canvas rendering) -->
+    <!-- Hidden Pre-render Container (For HD Canvas rendering) -->
     <div style="position: absolute; top: -9999px; left: -9999px; pointer-events: none;">
         <div id="fbFrameExport" style="width: 400px; height: 600px; background-color: #fff; position: relative; overflow: hidden;">
-            <!-- New Background Template Image -->
             <img src="https://i.ibb.co.com/7xHXCL66/Pixellab-ST-20260822-023401.jpg" alt="Template" crossorigin="anonymous" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
             
-            <!-- User Uploaded Image -->
             <div style="position: absolute; top: 32.5%; left: 24.5%; width: 51%; height: 35.5%; z-index: 2; overflow: hidden; border-radius: 8px;">
                 <img id="frameUserImage" src="" alt="User Image" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             
-            <!-- Name Text -->
             <div style="position: absolute; top: 68.5%; left: 8%; width: 84%; text-align: center; z-index: 3;">
                 <h4 id="frameUserName" style="color: #fff; font-weight: bold; font-size: 19px; font-family: 'Hind Siliguri', sans-serif; margin: 0; display: inline-block; width: 100%;">নাম</h4>
             </div>
 
-            <!-- Designation Text -->
             <div style="position: absolute; top: 76.5%; left: 8%; width: 84%; text-align: center; z-index: 3;">
                 <p id="frameUserDesignation" style="color: #fef08a; font-weight: 500; font-size: 14px; font-family: 'Hind Siliguri', sans-serif; margin: 0; display: inline-block; width: 100%;">পদবী</p>
             </div>
@@ -302,7 +317,7 @@
             <h3 class="text-lg text-amber-300 font-bold mb-1 title-font">আপনার প্রিমিয়াম ফ্রেম</h3>
             <p class="text-xs text-gray-400 mb-4 font-medium"><i class="fa-solid fa-hand-pointer text-amber-500 mr-1"></i> ছবিতে চাপ দিয়ে ধরে (Long-press) সেইভ করতে পারবেন</p>
             
-            <div class="w-full relative shadow-[0_20px_30px_rgba(0,0,0,0.8)] rounded-xl overflow-hidden border-2 border-amber-500/50 bg-gray-900 flex justify-center items-center min-h-[300px]">
+            <div class="w-full relative shadow-[0_20px_30px_rgba(0,0,0,0.8)] rounded-2xl overflow-hidden border-2 border-amber-500/50 bg-gray-900 flex justify-center items-center min-h-[300px]">
                 <img id="finalGeneratedImage" src="" alt="Premium Frame" class="w-full h-auto object-contain">
                 
                 <div id="frameLoadingState" class="absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-10 hidden">
@@ -314,36 +329,37 @@
             <p class="text-emerald-300 text-xs mt-4 mb-4 text-center">আপনার তথ্যটি সফলভাবে জমা হয়েছে এবং অনুমোদনের অপেক্ষায় আছে।</p>
 
             <div class="flex gap-3 w-full">
-                <button onclick="downloadFinalFrame(this)" class="flex-1 bg-amber-500 hover:bg-amber-400 text-black font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm">
-                    <i class="fa-solid fa-download"></i> ডাউনলোড
+                <button onclick="downloadFinalFrame()" class="flex-1 bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm">
+                    <i class="fa-solid fa-download"></i> ফ্রেম ডাউনলোড
                 </button>
-                <button onclick="closeFrameModal()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2.5 rounded-xl transition shadow-lg text-sm">
+                <button onclick="closeFrameModal()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded-xl transition shadow-lg text-sm">
                     বন্ধ করুন
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Admin Panel Modal -->
+    <!-- Professional Admin Panel Modal -->
     <div id="adminModal" class="fixed inset-0 bg-black/95 backdrop-blur-xl hidden justify-center items-start pt-10 px-4 z-50 overflow-y-auto">
-        <div class="glass-card rounded-2xl p-6 max-w-6xl w-full mb-10 border-t-4 border-amber-500">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-6 border-b border-gray-700 pb-4 gap-4">
+        <div class="glass-card rounded-3xl p-6 max-w-6xl w-full mb-10 border-t-4 border-amber-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 border-b border-gray-700 pb-4">
                 <div>
-                    <h3 class="text-2xl font-bold text-amber-400 title-font">এডমিন ড্যাশবোর্ড</h3>
-                    <p class="text-sm text-emerald-300">সহযোগী ব্যবস্থাপনা ও রিপোর্ট প্যানেল</p>
+                    <h3 class="text-2xl font-bold text-amber-400 title-font"><i class="fa-solid fa-user-shield mr-2"></i>এডমিন ড্যাশবোর্ড</h3>
+                    <p class="text-sm text-emerald-300 mt-1">সহযোগী ব্যবস্থাপনা ও রিপোর্ট প্যানেল</p>
                 </div>
-                
-                <!-- Search Box -->
-                <div class="w-full md:w-auto relative no-print">
-                    <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                    <input type="text" id="adminSearch" placeholder="নাম বা মোবাইল দিয়ে খুঁজুন..." class="w-full md:w-64 bg-black/50 border border-emerald-700/60 rounded-xl py-2 pl-9 pr-3 text-white focus:border-amber-400 outline-none text-sm transition">
-                </div>
+                <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                    <!-- Search Bar -->
+                    <div class="relative flex-grow md:flex-grow-0 min-w-[200px]">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                        </div>
+                        <input type="text" id="adminSearch" onkeyup="filterAdminList()" placeholder="খুঁজুন (নাম/মোবাইল)..." class="w-full pl-9 bg-black/50 border border-gray-600 rounded-xl p-2 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none text-sm transition">
+                    </div>
 
-                <div class="flex items-center gap-3">
                     <button onclick="window.printReport()" class="no-print bg-amber-500 hover:bg-amber-400 text-black font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 shadow-lg transition">
-                        <i class="fa-solid fa-print"></i> রিপোর্ট
+                        <i class="fa-solid fa-print"></i> পিডিএফ / প্রিন্ট
                     </button>
-                    <button onclick="closeAdminModal()" class="no-print text-gray-400 hover:text-red-400 text-3xl transition">
+                    <button onclick="closeAdminModal()" class="no-print bg-red-900/50 hover:bg-red-600 text-white px-3 py-2 rounded-xl text-sm border border-red-700 transition">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
@@ -351,38 +367,38 @@
 
             <!-- Dashboard Stats -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <div class="bg-emerald-950/50 p-5 rounded-xl border border-emerald-700/50 flex justify-between items-center">
+                <div class="bg-emerald-950/50 p-5 rounded-2xl border border-emerald-700/50 flex justify-between items-center shadow-inner">
                     <div>
-                        <p class="text-emerald-200 text-sm mb-1">সর্বমোট গৃহীত সহযোগিতা (Approved)</p>
+                        <p class="text-emerald-200 text-xs font-semibold mb-1 uppercase tracking-wider">সর্বমোট গৃহীত (Approved)</p>
                         <h4 id="totalApprovedFund" class="text-3xl font-bold text-emerald-400">০ ৳</h4>
                     </div>
                     <i class="fa-solid fa-handshake text-4xl text-emerald-600 opacity-50"></i>
                 </div>
-                <div class="bg-amber-950/50 p-5 rounded-xl border border-amber-700/50 flex justify-between items-center">
+                <div class="bg-amber-950/50 p-5 rounded-2xl border border-amber-700/50 flex justify-between items-center shadow-inner">
                     <div>
-                        <p class="text-amber-200 text-sm mb-1">অপেক্ষমাণ সহযোগিতা (Pending)</p>
+                        <p class="text-amber-200 text-xs font-semibold mb-1 uppercase tracking-wider">অপেক্ষমাণ (Pending)</p>
                         <h4 id="totalPendingFund" class="text-3xl font-bold text-amber-400">০ ৳</h4>
                     </div>
                     <i class="fa-solid fa-hourglass-half text-4xl text-amber-600 opacity-50"></i>
                 </div>
             </div>
 
-            <!-- Data Table -->
-            <div class="overflow-x-auto rounded-xl border border-gray-700 shadow-xl">
+            <!-- Data Table with Image -->
+            <div class="overflow-x-auto rounded-2xl border border-gray-700 shadow-xl bg-black/40">
                 <table class="w-full text-left text-sm text-gray-300 whitespace-nowrap">
-                    <thead class="bg-emerald-900/80 text-amber-300 uppercase text-[11px] tracking-wider">
+                    <thead class="bg-gray-800 text-amber-300 uppercase text-[11px] tracking-wider">
                         <tr>
-                            <th class="p-3 text-center w-10">ক্র.নং</th>
-                            <th class="p-3">ছবি</th>
-                            <th class="p-3">নাম ও পদবী</th>
+                            <th class="p-3 text-center">ছবি</th>
+                            <th class="p-3">নাম</th>
                             <th class="p-3">মোবাইল</th>
-                            <th class="p-3">পরিমাণ</th>
-                            <th class="p-3">মাধ্যম / বিবরণ</th>
+                            <th class="p-3">টাকার পরিমাণ</th>
+                            <th class="p-3">পেমেন্ট মেথড</th>
+                            <th class="p-3">ট্রাঞ্জেকশন</th>
                             <th class="p-3 text-center">স্ট্যাটাস</th>
                             <th class="p-3 text-right no-print">অ্যাকশন</th>
                         </tr>
                     </thead>
-                    <tbody id="adminList" class="divide-y divide-gray-800 bg-black/40">
+                    <tbody id="adminList" class="divide-y divide-gray-800">
                         <!-- Dynamic content -->
                     </tbody>
                 </table>
@@ -393,6 +409,7 @@
                 <i class="fa-solid fa-folder-open text-4xl mb-3 opacity-50"></i>
                 <p>কোনো তথ্য পাওয়া যায়নি</p>
             </div>
+
         </div>
     </div>
 
@@ -415,17 +432,18 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const associatesRef = ref(db, 'associates');
-        
-        window.globalAdminData = {}; // For Search function
+
+        window.adminData = {};
 
         onValue(associatesRef, (snapshot) => {
-            window.globalAdminData = snapshot.val() || {};
-            window.renderAdminData();
+            const data = snapshot.val() || {};
+            window.adminData = data;
+            renderAdminData(data);
         });
 
-        const defaultPhotoSVG = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="340" height="340" viewBox="0 0 340 340"><rect width="100%" height="100%" fill="%23e5e7eb"/><path d="M170 90 A 55 55 0 1 0 170 200 A 55 55 0 1 0 170 90 Z" fill="%239ca3af"/><circle cx="170" cy="135" r="35" fill="%239ca3af"/><path d="M110 240 C 110 190, 230 190, 230 240 Z" fill="%239ca3af"/></svg>';
+        const defaultPhotoSVG = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="340" height="340" viewBox="0 0 340 340"><rect width="100%" height="100%" fill="%231f2937"/><path d="M170 90 A 55 55 0 1 0 170 200 A 55 55 0 1 0 170 90 Z" fill="%234b5563"/><circle cx="170" cy="135" r="35" fill="%234b5563"/><path d="M110 240 C 110 190, 230 190, 230 240 Z" fill="%234b5563"/></svg>';
 
-        // Image compression to 20-30KB before saving
+        // 20-30KB Image Compression & Preview
         document.getElementById('donorPhoto').addEventListener('change', function(e) {
             const file = e.target.files[0];
             const preview = document.getElementById('formImagePreview');
@@ -441,34 +459,18 @@
                     const img = new Image();
                     img.onload = function() {
                         const canvas = document.createElement('canvas');
-                        // Resize max width/height to compress nicely
-                        const MAX_WIDTH = 400;
-                        const MAX_HEIGHT = 400;
-                        let width = img.width;
-                        let height = img.height;
+                        const MAX_WIDTH = 300; 
+                        const scaleSize = MAX_WIDTH / img.width;
+                        canvas.width = MAX_WIDTH;
+                        canvas.height = img.height * scaleSize;
 
-                        if (width > height) {
-                            if (width > MAX_WIDTH) {
-                                height *= MAX_WIDTH / width;
-                                width = MAX_WIDTH;
-                            }
-                        } else {
-                            if (height > MAX_HEIGHT) {
-                                width *= MAX_HEIGHT / height;
-                                height = MAX_HEIGHT;
-                            }
-                        }
-                        canvas.width = width;
-                        canvas.height = height;
                         const ctx = canvas.getContext('2d');
-                        ctx.drawImage(img, 0, 0, width, height);
-                        
-                        // Compress heavily using JPEG at 0.5 quality to hit ~20-30KB
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
                         const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.5);
-                        
                         preview.src = compressedDataUrl;
                         preview.classList.remove('hidden');
-                    }
+                    };
                     img.src = event.target.result;
                 };
                 reader.readAsDataURL(file);
@@ -490,13 +492,13 @@
             if (amount < 200) {
                 alert("দুঃখিত, প্রিমিয়াম ফ্রেম পেতে সর্বনিম্ন ২০০ টাকা সহযোগিতা প্রদান করতে হবে।");
                 submitBtn.disabled = false;
-                submitBtn.innerText = 'জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন';
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন ও ফ্রেম দেখুন';
                 return; 
             }
 
             const isAnon = document.getElementById('anonymous').checked;
             const name = isAnon ? 'পরিচয় গোপন' : document.getElementById('donorName').value.trim();
-            const mobile = isAnon ? '' : document.getElementById('donorMobile').value.trim();
+            const mobileNumber = isAnon ? '000000' : document.getElementById('mobileNumber').value.trim();
             const designation = isAnon ? '' : document.getElementById('donorDesignation').value.trim();
             const method = document.getElementById('paymentMethod').value;
             const trx = document.getElementById('trxId').value.trim();
@@ -511,18 +513,20 @@
 
             const supportData = {
                 name: name,
-                mobile: mobile,
+                mobile: mobileNumber,
                 designation: designation,
-                photo: finalImageDataUrl, // Save compressed photo in DB
                 amount: amount,
                 method: method,
                 detail: method === 'Cash' ? `গ্রহীতা: ${receivedBy}` : `TrxID: ${trx}`,
+                photoUrl: finalImageDataUrl,
                 date: new Date().toLocaleDateString('bn-BD'),
                 status: 'Pending',
                 timestamp: Date.now()
             };
 
-            push(associatesRef, supportData).then(() => {
+            push(associatesRef, supportData).then((refSnapshot) => {
+                const generatedKey = refSnapshot.key;
+                
                 document.getElementById('donateModal').classList.add('hidden');
                 document.getElementById('donateModal').classList.remove('flex');
                 
@@ -532,19 +536,14 @@
                 document.getElementById('frameLoadingState').classList.remove('hidden');
                 document.getElementById('finalGeneratedImage').src = "";
 
-                // Setup hidden frame
                 document.getElementById('frameUserImage').src = finalImageDataUrl;
                 document.getElementById('frameUserName').innerText = name;
                 document.getElementById('frameUserDesignation').innerText = designation;
-                
-                // Add exact mobile number temporarily to download name function later
-                document.getElementById('frameModal').setAttribute('data-name', name);
-                document.getElementById('frameModal').setAttribute('data-mobile', mobile);
 
                 setTimeout(() => {
                     const frameElement = document.getElementById('fbFrameExport');
                     html2canvas(frameElement, {
-                        scale: 4,
+                        scale: 4, 
                         useCORS: true,
                         allowTaint: true,
                         backgroundColor: null
@@ -554,7 +553,7 @@
                         document.getElementById('frameLoadingState').classList.add('hidden');
 
                         submitBtn.disabled = false;
-                        submitBtn.innerText = 'জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন';
+                        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন ও ফ্রেম দেখুন';
                         window.resetDonationForm();
 
                     }).catch(err => {
@@ -562,15 +561,15 @@
                         alert("ফ্রেম তৈরি করতে সমস্যা হয়েছে। ইন্টারনেট কানেকশন চেক করুন।");
                         document.getElementById('frameLoadingState').classList.add('hidden');
                         submitBtn.disabled = false;
-                        submitBtn.innerText = 'জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন';
+                        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন ও ফ্রেম দেখুন';
                     });
-                }, 800);
+                }, 800); 
 
             }).catch(err => {
                 console.error("Firebase Error:", err);
                 alert("দুঃখিত, তথ্য জমা দেওয়া সম্ভব হয়নি। ইন্টারনেটের সংযোগ নিশ্চিত করুন।");
                 submitBtn.disabled = false;
-                submitBtn.innerText = 'জমা দিন ও প্রিমিয়াম ফ্রেম দেখুন';
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন ও ফ্রেম দেখুন';
             });
         };
 
@@ -583,8 +582,9 @@
             document.getElementById('photo-wrapper').style.display = 'block';
             
             document.getElementById('donorName').setAttribute('required', 'true');
-            document.getElementById('donorMobile').setAttribute('required', 'true');
+            document.getElementById('mobileNumber').setAttribute('required', 'true');
             document.getElementById('donorPhoto').setAttribute('required', 'true');
+            document.getElementById('donorDesignation').value = '';
             
             const preview = document.getElementById('formImagePreview');
             if (preview) {
@@ -595,6 +595,81 @@
             document.getElementById('paymentMethod').value = 'bKash';
             window.togglePaymentFields();
         };
+
+        function renderAdminData(data) {
+            const listContainer = document.getElementById('adminList');
+            const emptyState = document.getElementById('emptyState');
+            
+            listContainer.innerHTML = '';
+            let totalApproved = 0;
+            let totalPending = 0;
+
+            const keys = Object.keys(data);
+
+            if(keys.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                const sortedKeys = keys.sort((a,b) => (data[a].timestamp || 0) - (data[b].timestamp || 0));
+
+                let serial = 1;
+
+                sortedKeys.forEach(key => {
+                    const item = data[key];
+                    if(item.status === 'Approved') totalApproved += (item.amount || 0);
+                    if(item.status === 'Pending') totalPending += (item.amount || 0);
+
+                    const currentSerial = serial++;
+
+                    const statusBadge = item.status === 'Approved' 
+                        ? `<span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-2 py-1 rounded text-[10px] font-bold"><i class="fa-solid fa-check mr-1"></i>Approved</span>`
+                        : `<span class="bg-amber-500/20 text-amber-400 border border-amber-500/50 px-2 py-1 rounded text-[10px] font-bold"><i class="fa-solid fa-clock mr-1"></i>Pending</span>`;
+
+                    const actionBtn = item.status === 'Pending'
+                        ? `<button onclick="updateStatus('${key}', 'Approved')" class="bg-emerald-600 hover:bg-emerald-500 text-white p-1.5 px-2.5 rounded-lg text-xs transition" title="Approve"><i class="fa-solid fa-check"></i></button>`
+                        : `<button onclick="updateStatus('${key}', 'Pending')" class="bg-gray-600 hover:bg-gray-500 text-white p-1.5 px-2.5 rounded-lg text-xs transition" title="Mark Pending"><i class="fa-solid fa-rotate-left"></i></button>`;
+
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-gray-800/60 transition search-row";
+                    tr.innerHTML = `
+                        <td class="p-3 text-center">
+                            <img src="${item.photoUrl || defaultPhotoSVG}" class="w-9 h-9 object-cover rounded-full border border-amber-500/50 shadow-sm mx-auto">
+                        </td>
+                        <td class="p-3 font-bold text-amber-200 text-sm">
+                            ${item.name || 'পরিচয় গোপন'}
+                            ${item.designation ? `<span class="text-[10px] text-emerald-300 block font-normal">${item.designation}</span>` : ''}
+                        </td>
+                        <td class="p-3 text-xs">
+                            <a href="tel:${item.mobile}" class="text-amber-400 hover:underline flex items-center gap-1.5 font-medium" title="কল করতে ক্লিক করুন">
+                                <i class="fa-solid fa-phone text-[10px] text-emerald-400"></i> ${item.mobile || 'N/A'}
+                            </a>
+                        </td>
+                        <td class="p-3 font-bold text-emerald-400 text-sm">${item.amount || 0} ৳</td>
+                        <td class="p-3 text-xs text-amber-300 font-semibold">${item.method || ''}</td>
+                        <td class="p-3 text-xs text-gray-300">
+                            <span class="font-mono bg-black/40 px-2 py-0.5 rounded border border-gray-700">${item.detail || 'N/A'}</span>
+                            <span class="text-[10px] text-gray-500 block mt-1">${item.date || ''}</span>
+                        </td>
+                        <td class="p-3 text-center">${statusBadge}</td>
+                        <td class="p-3 text-right no-print">
+                            <div class="flex items-center justify-end gap-1.5">
+                                ${actionBtn}
+                                <button id="dl-btn-${key}" onclick="downloadAdminFrame('${key}', ${currentSerial})" class="bg-amber-600 hover:bg-amber-500 text-white p-1.5 px-2.5 rounded-lg text-xs transition" title="ডাউনলোড ফ্রেম (rafi-${currentSerial})">
+                                    <i class="fa-solid fa-download"></i>
+                                </button>
+                                <button onclick="deleteEntry('${key}')" class="bg-red-900/80 hover:bg-red-600 text-white p-1.5 px-2.5 rounded-lg text-xs transition border border-red-700" title="ডিলিট">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    listContainer.appendChild(tr);
+                });
+            }
+
+            document.getElementById('totalApprovedFund').innerText = totalApproved.toLocaleString('bn-BD') + " ৳";
+            document.getElementById('totalPendingFund').innerText = totalPending.toLocaleString('bn-BD') + " ৳";
+        }
 
         window.updateStatus = function(key, newStatus) {
             const itemRef = ref(db, `associates/${key}`);
@@ -610,8 +685,65 @@
 
     </script>
 
-    <!-- General UI JS Helpers & Search & Card Download -->
+    <!-- General UI JS Helpers -->
     <script>
+        // Automatic Download Name Formatting: rafi-1, rafi-2...
+        window.downloadAdminFrame = function(key, serialNo) {
+            const item = window.adminData[key];
+            if(!item) return;
+
+            const btn = document.getElementById(`dl-btn-${key}`);
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+            btn.disabled = true;
+
+            document.getElementById('frameUserImage').src = item.photoUrl || defaultPhotoSVG;
+            document.getElementById('frameUserName').innerText = item.name || 'পরিচয় গোপন';
+            document.getElementById('frameUserDesignation').innerText = item.designation || '';
+
+            setTimeout(() => {
+                const frameElement = document.getElementById('fbFrameExport');
+                html2canvas(frameElement, {
+                    scale: 4,
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: null
+                }).then(canvas => {
+                    const finalImgUrl = canvas.toDataURL('image/png', 1.0);
+                    const link = document.createElement('a');
+                    
+                    // Auto Filename format: rafi-1, rafi-2 etc.
+                    link.download = `rafi-${serialNo}.png`;
+                    
+                    link.href = finalImgUrl;
+                    link.click();
+                    
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                }).catch(err => {
+                    console.error("Admin Canvas Error:", err);
+                    alert("ফ্রেম তৈরি করতে সমস্যা হয়েছে।");
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                });
+            }, 500);
+        };
+
+        // Live Search functionality
+        window.filterAdminList = function() {
+            const input = document.getElementById('adminSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('.search-row');
+            
+            rows.forEach(row => {
+                const textData = row.innerText.toLowerCase();
+                if(textData.includes(input)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        };
+
         const eventDate = new Date("August 27, 2026 00:00:00").getTime();
         
         const cdInterval = setInterval(function() {
@@ -649,27 +781,25 @@
             const isAnon = document.getElementById('anonymous').checked;
             const personalFields = document.getElementById('personal-fields');
             const photoWrapper = document.getElementById('photo-wrapper');
-            const inputs = [document.getElementById('donorName'), document.getElementById('donorMobile')];
+            
+            const nameInput = document.getElementById('donorName');
+            const mobileInput = document.getElementById('mobileNumber');
             const photoInput = document.getElementById('donorPhoto');
+            const previewImg = document.getElementById('formImagePreview');
             
             if (isAnon) {
                 personalFields.style.display = 'none';
                 photoWrapper.style.display = 'none';
-                inputs.forEach(i => i.removeAttribute('required'));
+                nameInput.removeAttribute('required');
+                mobileInput.removeAttribute('required');
                 photoInput.removeAttribute('required');
-                
-                document.getElementById('donorName').value = 'পরিচয় গোপন';
-                document.getElementById('donorMobile').value = '';
-                document.getElementById('donorDesignation').value = '';
+                if(previewImg) { previewImg.src = ''; previewImg.classList.add('hidden'); }
             } else {
                 personalFields.style.display = 'block';
                 photoWrapper.style.display = 'block';
-                inputs.forEach(i => i.setAttribute('required', 'true'));
+                nameInput.setAttribute('required', 'true');
+                mobileInput.setAttribute('required', 'true');
                 photoInput.setAttribute('required', 'true');
-                
-                document.getElementById('donorName').value = '';
-                document.getElementById('donorMobile').value = '';
-                document.getElementById('donorDesignation').value = '';
             }
         }
 
@@ -711,14 +841,8 @@
             const imgSrc = document.getElementById('finalGeneratedImage').src;
             if(!imgSrc || imgSrc === "") return alert("একটু অপেক্ষা করুন, ছবি তৈরি হচ্ছে...");
             
-            let name = document.getElementById('frameModal').getAttribute('data-name') || 'user';
-            let mobile = document.getElementById('frameModal').getAttribute('data-mobile') || '00';
-            
-            // Format file name
-            name = name.replace(/\s+/g, '-').toLowerCase();
-            
             const link = document.createElement('a');
-            link.download = `${name}-${mobile}.png`;
+            link.download = 'Miladunnabi-Frame.png';
             link.href = imgSrc;
             link.click();
         }
@@ -728,7 +852,6 @@
             if (pass === "admin123" || pass === "rafi" || pass === "1234" || pass === "admin") { 
                 document.getElementById('adminModal').classList.remove('hidden');
                 document.getElementById('adminModal').classList.add('flex');
-                if(window.renderAdminData) window.renderAdminData();
             } else if (pass !== null) {
                 alert("ভুল পিন কোড!");
             }
@@ -738,144 +861,7 @@
             document.getElementById('adminModal').classList.add('hidden');
             document.getElementById('adminModal').classList.remove('flex');
         }
-
-        // Render Admin Data with Search Support
-        document.getElementById('adminSearch').addEventListener('input', () => {
-            if(window.renderAdminData) window.renderAdminData();
-        });
-
-        window.renderAdminData = function() {
-            const data = window.globalAdminData || {};
-            const listContainer = document.getElementById('adminList');
-            const emptyState = document.getElementById('emptyState');
-            const searchTerm = document.getElementById('adminSearch').value.toLowerCase();
-            
-            listContainer.innerHTML = '';
-            let totalApproved = 0;
-            let totalPending = 0;
-
-            const keys = Object.keys(data);
-            const sortedKeys = keys.sort((a,b) => (data[b].timestamp || 0) - (data[a].timestamp || 0));
-            let serialNum = 1;
-            let displayedCount = 0;
-
-            sortedKeys.forEach(key => {
-                const item = data[key];
-                const nameStr = (item.name || '').toLowerCase();
-                const mobileStr = (item.mobile || '').toLowerCase();
-                
-                if(item.status === 'Approved') totalApproved += (item.amount || 0);
-                if(item.status === 'Pending') totalPending += (item.amount || 0);
-
-                // Filter by Search Query
-                if (searchTerm && !nameStr.includes(searchTerm) && !mobileStr.includes(searchTerm)) {
-                    return; // skip if not match
-                }
-                
-                displayedCount++;
-
-                const statusBadge = item.status === 'Approved' 
-                    ? `<span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-2 py-1 rounded text-[10px] font-bold"><i class="fa-solid fa-check mr-1"></i>Approved</span>`
-                    : `<span class="bg-amber-500/20 text-amber-400 border border-amber-500/50 px-2 py-1 rounded text-[10px] font-bold"><i class="fa-solid fa-clock mr-1"></i>Pending</span>`;
-
-                const actionBtn = item.status === 'Pending'
-                    ? `<button onclick="updateStatus('${key}', 'Approved')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1.5 rounded-md text-xs font-bold transition" title="Approve"><i class="fa-solid fa-check"></i></button>`
-                    : `<button onclick="updateStatus('${key}', 'Pending')" class="bg-gray-600 hover:bg-gray-500 text-white px-2.5 py-1.5 rounded-md text-xs font-bold transition" title="Mark Pending"><i class="fa-solid fa-rotate-left"></i></button>`;
-
-                const safeName = item.name ? item.name.replace(/'/g, "\\'") : 'পরিচয় গোপন';
-                const safeDesig = item.designation ? item.designation.replace(/'/g, "\\'") : '';
-                const safeMobile = item.mobile ? item.mobile.replace(/'/g, "\\'") : '';
-                // Since photo is base64, we can't easily pass it in an inline function parameter due to length. 
-                // We will store it in a global temp object and pass the key.
-                
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-gray-800/50 transition border-b border-gray-800 last:border-0";
-                tr.innerHTML = `
-                    <td class="p-3 text-center text-gray-400 text-xs">${serialNum++}</td>
-                    <td class="p-3">
-                        <img src="${item.photo || 'https://via.placeholder.com/40?text=No+Img'}" class="w-10 h-10 object-cover rounded border border-emerald-700/50" alt="img">
-                    </td>
-                    <td class="p-3">
-                        <div class="flex flex-col">
-                            <span class="font-bold text-amber-200 text-sm">${item.name || 'পরিচয় গোপন'}</span>
-                            <span class="text-[10px] text-gray-400">${item.designation || ''}</span>
-                        </div>
-                    </td>
-                    <td class="p-3 text-sm text-gray-300">${item.mobile || '-'}</td>
-                    <td class="p-3 font-bold text-emerald-400 text-sm">${item.amount || 0} ৳</td>
-                    <td class="p-3 text-xs">
-                        <span class="text-amber-400 font-bold">${item.method || ''}</span><br>
-                        <span class="text-gray-400 text-[10px]">${item.detail || ''}</span>
-                    </td>
-                    <td class="p-3 text-center">${statusBadge}</td>
-                    <td class="p-3 text-right no-print flex justify-end gap-1.5 items-center mt-1">
-                        <!-- Direct Download Button -->
-                        <button onclick="downloadAdminCard('${key}')" class="bg-blue-600/80 hover:bg-blue-500 text-white px-2.5 py-1.5 rounded-md text-xs font-bold transition border border-blue-500/50" title="ডাউনলোড কার্ড">
-                            <i class="fa-solid fa-download"></i>
-                        </button>
-                        ${actionBtn}
-                        <button onclick="deleteEntry('${key}')" class="bg-red-900/80 hover:bg-red-600 text-white px-2.5 py-1.5 rounded-md text-xs font-bold transition border border-red-700" title="Delete">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </td>
-                `;
-                listContainer.appendChild(tr);
-            });
-
-            if(displayedCount === 0) {
-                emptyState.classList.remove('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-            }
-
-            document.getElementById('totalApprovedFund').innerText = totalApproved.toLocaleString('bn-BD') + " ৳";
-            document.getElementById('totalPendingFund').innerText = totalPending.toLocaleString('bn-BD') + " ৳";
-        };
-
-        window.downloadAdminCard = function(key) {
-            const item = window.globalAdminData[key];
-            if(!item) return;
-
-            // Use the hidden frame setup
-            document.getElementById('frameUserImage').src = item.photo || defaultPhotoSVG;
-            document.getElementById('frameUserName').innerText = item.name || 'পরিচয় গোপন';
-            document.getElementById('frameUserDesignation').innerText = item.designation || '';
-
-            // Give a small toast or visual feedback
-            const btnIcon = event.currentTarget.innerHTML;
-            const btnTarget = event.currentTarget;
-            btnTarget.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-            btnTarget.disabled = true;
-
-            setTimeout(() => {
-                const frameElement = document.getElementById('fbFrameExport');
-                html2canvas(frameElement, {
-                    scale: 4,
-                    useCORS: true,
-                    allowTaint: true,
-                    backgroundColor: null
-                }).then(canvas => {
-                    const finalImgUrl = canvas.toDataURL('image/png', 1.0);
-                    
-                    let dlName = (item.name || 'User').replace(/\s+/g, '-').toLowerCase();
-                    let dlMobile = item.mobile || '00';
-                    
-                    const link = document.createElement('a');
-                    link.download = `${dlName}-${dlMobile}.png`;
-                    link.href = finalImgUrl;
-                    link.click();
-
-                    btnTarget.innerHTML = btnIcon;
-                    btnTarget.disabled = false;
-                }).catch(err => {
-                    console.error("Canvas Error:", err);
-                    alert("কার্ড ডাউনলোড করতে সমস্যা হয়েছে।");
-                    btnTarget.innerHTML = btnIcon;
-                    btnTarget.disabled = false;
-                });
-            }, 600); // 600ms render wait
-        };
-
+        
         window.printReport = function() { window.print(); };
     </script>
 </body>
