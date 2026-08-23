@@ -48,8 +48,8 @@
 
         @media print {
             body * { visibility: hidden; }
-            #adminModal, #adminModal * { visibility: visible; }
-            #adminModal {
+            #adminModal, #adminModal *, #pressAdminModal, #pressAdminModal * { visibility: visible; }
+            #adminModal, #pressAdminModal {
                 position: absolute; left: 0; top: 0; width: 100%;
                 background: #fff !important; color: #000 !important; padding: 0 !important;
             }
@@ -143,12 +143,20 @@
             </div>
         </div>
 
-        <!-- Action Section -->
-        <div class="text-center mb-6">
-            <button onclick="openDonateModal()" class="group relative px-9 py-4 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-emerald-950 font-extrabold text-lg md:text-xl rounded-full shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:shadow-[0_0_40px_rgba(212,175,55,0.8)] hover:scale-105 transition-all duration-300 overflow-hidden flex items-center gap-3 mx-auto">
-                <i class="fa-solid fa-hand-holding-heart text-2xl"></i> আয়োজনের গর্বিত সহযোগী হোন
-            </button>
-            <p class="text-emerald-300 text-xs md:text-sm mt-3.5 font-medium">সহযোগিতা প্রদান করে মুহূর্তেই সংগ্রহ করুন আপনার প্রিমিয়াম পোস্টার ফ্রেম</p>
+        <!-- Action Section (Buttons) -->
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-6 w-full max-w-2xl mx-auto">
+            <!-- Donation Frame Button -->
+            <div class="text-center w-full">
+                <button onclick="openDonateModal()" class="w-full group relative px-6 py-4 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-emerald-950 font-extrabold text-base md:text-lg rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.8)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-hand-holding-heart text-xl"></i> সহযোগী হোন
+                </button>
+            </div>
+            <!-- ID Card Button -->
+            <div class="text-center w-full">
+                <button onclick="openIdCardModal()" class="w-full group relative px-6 py-4 bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 text-white font-extrabold text-base md:text-lg rounded-full shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.8)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 border border-emerald-400/50">
+                    <i class="fa-solid fa-id-badge text-xl"></i> ইভেন্ট আইডি কার্ড নিন
+                </button>
+            </div>
         </div>
     </main>
 
@@ -156,11 +164,15 @@
     <footer class="w-full glass-card border-t border-emerald-900/80 py-6 mt-auto relative z-10">
         <div class="container mx-auto px-4 text-center">
             <p class="text-gray-400 text-sm mb-2">© ২০২৬ ইয়ুথ কমিউনিটি বড়াইগ্রাম। সর্বস্বত্ব সংরক্ষিত।</p>
-            <div class="flex justify-center items-center gap-4 text-xs text-emerald-600">
+            <div class="flex justify-center items-center gap-4 text-xs text-emerald-600 flex-wrap">
                 <button onclick="openAdminPrompt()" class="hover:text-amber-500 transition cursor-pointer flex items-center gap-1 font-semibold">
                     <i class="fa-solid fa-lock"></i> এডমিন প্যানেল
                 </button>
-                <span>|</span>
+                <span class="hidden md:inline">|</span>
+                <button onclick="openPressPrompt()" class="hover:text-amber-500 transition cursor-pointer flex items-center gap-1 font-semibold text-amber-200">
+                    <i class="fa-solid fa-users-gear"></i> প্রেস লগিন
+                </button>
+                <span class="hidden md:inline">|</span>
                 <a href="tel:+8801763752653" class="hover:text-amber-500 transition flex items-center gap-1">
                     ডেভোলোপ <span class="font-bold text-amber-400">RaFi Digital Solution</span>
                 </a>
@@ -168,7 +180,9 @@
         </div>
     </footer>
 
-    <!-- Smart Support Form Modal -->
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Smart Support Form Modal (Donation) -->
     <div id="donateModal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden justify-center items-center p-4 z-50">
         <div class="glass-card rounded-3xl p-6 md:p-8 max-w-md w-full max-h-[95vh] overflow-y-auto relative border-2 border-amber-500/50 shadow-2xl">
             <button onclick="closeDonateModal()" class="absolute top-4 right-4 text-amber-300 hover:text-white text-2xl transition">
@@ -238,7 +252,7 @@
                     <label class="block text-[11px] font-semibold text-amber-200/80 mb-2 uppercase tracking-wider">আপনার সুন্দর ছবি (ফ্রেমের জন্য) *</label>
                     <div class="flex items-center gap-3">
                         <img id="formImagePreview" src="" class="hidden w-14 h-14 rounded-xl border border-amber-500/50 object-cover shadow-md">
-                        <input type="file" id="donorPhoto" accept="image/*" required class="w-full text-xs text-emerald-200 file:mr-2 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-black hover:file:bg-amber-400 cursor-pointer outline-none transition">
+                        <input type="file" id="donorPhoto" accept="image/*" required onchange="handleImagePreview(event, 'formImagePreview')" class="w-full text-xs text-emerald-200 file:mr-2 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-black hover:file:bg-amber-400 cursor-pointer outline-none transition">
                     </div>
                     <p class="text-[10px] text-emerald-300/60 mt-2"><i class="fa-solid fa-compress mr-1"></i> ছবি স্বয়ংক্রিয়ভাবে অপ্টিমাইজ (২০-৩০ KB) হয়ে যাবে।</p>
                 </div>
@@ -291,8 +305,90 @@
         </div>
     </div>
 
-    <!-- Hidden Pre-render Container (For HD Canvas rendering) -->
+    <!-- ID Card Generate Modal -->
+    <div id="idCardModal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden justify-center items-center p-4 z-50">
+        <div class="glass-card rounded-3xl p-6 md:p-8 max-w-md w-full max-h-[95vh] overflow-y-auto relative border-2 border-emerald-500/50 shadow-2xl">
+            <button onclick="closeIdCardModal()" class="absolute top-4 right-4 text-emerald-300 hover:text-white text-2xl transition">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+            
+            <h3 class="text-2xl font-extrabold text-emerald-400 text-center mb-1 title-font">
+                অফিসিয়াল আইডি কার্ড ফরম
+            </h3>
+            <p class="text-xs text-center text-emerald-200 mb-5 border-b border-emerald-800 pb-3">নিচের তথ্যগুলো সঠিক ভাবে পূরণ করুন</p>
+
+            <form id="idCardForm" onsubmit="handleIdCardSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[11px] font-semibold text-emerald-200/80 mb-1 uppercase tracking-wider">আপনার নাম *</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-user text-emerald-500/70"></i>
+                        </div>
+                        <input type="text" id="idName" required class="w-full pl-10 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition outline-none text-sm" placeholder="উদা: মো: রাকিবুল হাসান">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-semibold text-emerald-200/80 mb-1 uppercase tracking-wider">আপনার পদবী *</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-briefcase text-emerald-500/70"></i>
+                        </div>
+                        <input type="text" id="idDesignation" required class="w-full pl-10 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition outline-none text-sm" placeholder="উদা: সদস্য / স্বেচ্ছাসেবক">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-semibold text-emerald-200/80 mb-1 uppercase tracking-wider">মোবাইল নাম্বার *</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-phone text-emerald-500/70"></i>
+                            </div>
+                            <input type="tel" id="idMobile" required class="w-full pl-8 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition outline-none text-sm" placeholder="01XXXXXXXXX">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-semibold text-emerald-200/80 mb-1 uppercase tracking-wider">রক্তের গ্রুপ *</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-droplet text-red-500/70"></i>
+                            </div>
+                            <select id="idBlood" required class="w-full pl-8 bg-black/50 border border-emerald-700/60 rounded-xl p-2.5 text-white focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition outline-none text-sm appearance-none cursor-pointer">
+                                <option value="" disabled selected>নির্বাচন করুন</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-black/30 p-3.5 rounded-2xl border border-emerald-700/50">
+                    <label class="block text-[11px] font-semibold text-emerald-200/80 mb-2 uppercase tracking-wider">আপনার সুন্দর ছবি *</label>
+                    <div class="flex items-center gap-3">
+                        <img id="idImagePreview" src="" class="hidden w-14 h-14 rounded-xl border border-emerald-500/50 object-cover shadow-md">
+                        <input type="file" id="idPhoto" accept="image/*" required onchange="handleImagePreview(event, 'idImagePreview')" class="w-full text-xs text-emerald-200 file:mr-2 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-600 file:text-white hover:file:bg-emerald-500 cursor-pointer outline-none transition">
+                    </div>
+                </div>
+
+                <button type="submit" id="idSubmitBtn" class="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-extrabold py-3.5 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(16,185,129,0.4)] text-sm flex items-center justify-center gap-2 mt-2 border border-emerald-400">
+                    <i class="fa-solid fa-id-card"></i> আইডি কার্ড তৈরি করুন
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hidden Pre-render Containers (Frame & ID Card) -->
     <div style="position: absolute; top: -9999px; left: -9999px; pointer-events: none;">
+        
+        <!-- Donation Frame Export -->
         <div id="fbFrameExport" style="width: 400px; height: 600px; background-color: #fff; position: relative; overflow: hidden;">
             <img src="https://i.ibb.co.com/7xHXCL66/Pixellab-ST-20260822-023401.jpg" alt="Template" crossorigin="anonymous" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
             
@@ -308,31 +404,65 @@
                 <p id="frameUserDesignation" style="color: #fef08a; font-weight: 500; font-size: 14px; font-family: 'Hind Siliguri', sans-serif; margin: 0; display: inline-block; width: 100%;">পদবী</p>
             </div>
         </div>
-    </div>
 
-    <!-- Profile Frame Output Modal -->
-    <div id="frameModal" class="fixed inset-0 bg-black/95 backdrop-blur-md hidden justify-center items-center p-4 z-50">
-        <div class="flex flex-col items-center max-w-md w-full">
+        <!-- ID Card Export Layout -->
+        <div id="idCardExport" style="width: 380px; height: 580px; background: linear-gradient(135deg, #064e3b 0%, #000000 100%); border: 3px solid #d4af37; border-radius: 20px; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; padding: 25px 20px;">
+            <div style="position: absolute; top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(212, 175, 55, 0.2); border-radius: 50%; filter: blur(30px);"></div>
+            <div style="position: absolute; bottom: -50px; right: -50px; width: 150px; height: 150px; background: rgba(16, 185, 129, 0.2); border-radius: 50%; filter: blur(30px);"></div>
             
-            <h3 class="text-lg text-amber-300 font-bold mb-1 title-font">আপনার প্রিমিয়াম ফ্রেম</h3>
-            <p class="text-xs text-gray-400 mb-4 font-medium"><i class="fa-solid fa-hand-pointer text-amber-500 mr-1"></i> ছবিতে চাপ দিয়ে ধরে (Long-press) সেইভ করতে পারবেন</p>
+            <h2 style="font-family: 'Tiro Bangla', serif; font-size: 26px; font-weight: bold; color: #fef08a; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); z-index: 10;">ইয়ুথ কমিউনিটি বড়াইগ্রাম</h2>
+            <p style="font-family: 'Hind Siliguri', sans-serif; font-size: 14px; color: #a7f3d0; margin: 2px 0 20px 0; z-index: 10; letter-spacing: 2px; font-weight: bold; text-transform: uppercase;">অফিসিয়াল পরিচয়পত্র</p>
             
-            <div class="w-full relative shadow-[0_20px_30px_rgba(0,0,0,0.8)] rounded-2xl overflow-hidden border-2 border-amber-500/50 bg-gray-900 flex justify-center items-center min-h-[300px]">
-                <img id="finalGeneratedImage" src="" alt="Premium Frame" class="w-full h-auto object-contain">
-                
-                <div id="frameLoadingState" class="absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-10 hidden">
-                    <i class="fa-solid fa-circle-notch fa-spin text-4xl text-amber-400 mb-3"></i>
-                    <p class="text-sm text-emerald-200">ফ্রেম তৈরি হচ্ছে...</p>
+            <div style="width: 160px; height: 160px; border-radius: 50%; border: 4px solid #d4af37; padding: 4px; background: rgba(0,0,0,0.5); z-index: 10; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                <img id="exportIdImage" src="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+            </div>
+
+            <div style="text-align: center; margin-top: 25px; z-index: 10; width: 100%;">
+                <h3 id="exportIdName" style="font-family: 'Hind Siliguri', sans-serif; font-size: 30px; font-weight: 800; color: #ffffff; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">নাম</h3>
+                <p id="exportIdDesignation" style="font-family: 'Hind Siliguri', sans-serif; font-size: 18px; color: #fef08a; margin: 5px 0 15px 0; font-weight: 600;">পদবী</p>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; width: 90%; padding: 15px; margin-top: auto; margin-bottom: 20px; z-index: 10;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                    <span style="color: #6ee7b7; font-weight: bold; font-family: 'Hind Siliguri', sans-serif; font-size: 16px;">মোবাইল:</span>
+                    <span id="exportIdMobile" style="color: #ffffff; font-family: 'Hind Siliguri', sans-serif; font-size: 16px; font-weight: 600;">01XXX</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span style="color: #6ee7b7; font-weight: bold; font-family: 'Hind Siliguri', sans-serif; font-size: 16px;">রক্তের গ্রুপ:</span>
+                    <span id="exportIdBlood" style="color: #ef4444; font-family: 'Hind Siliguri', sans-serif; font-size: 18px; font-weight: 800;">A+</span>
                 </div>
             </div>
 
-            <p class="text-emerald-300 text-xs mt-4 mb-4 text-center">আপনার তথ্যটি সফলভাবে জমা হয়েছে এবং অনুমোদনের অপেক্ষায় আছে।</p>
+            <div style="width: 100%; border-top: 1px dashed rgba(212, 175, 55, 0.5); padding-top: 15px; text-align: center; z-index: 10;">
+                <p style="font-family: 'Hind Siliguri', sans-serif; font-size: 12px; color: #9ca3af; margin: 0;">কর্তৃপক্ষ কর্তৃক অনুমোদিত</p>
+                <p style="font-family: 'Hind Siliguri', sans-serif; font-size: 10px; color: #6b7280; margin: 2px 0 0 0;">ID: YCB-2026</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generated Result Output Modal (Frame & ID Card sharing this layout) -->
+    <div id="resultModal" class="fixed inset-0 bg-black/95 backdrop-blur-md hidden justify-center items-center p-4 z-50">
+        <div class="flex flex-col items-center max-w-md w-full">
+            
+            <h3 id="resultTitle" class="text-xl text-amber-300 font-bold mb-1 title-font">আপনার প্রিমিয়াম ফ্রেম</h3>
+            <p class="text-xs text-gray-400 mb-4 font-medium"><i class="fa-solid fa-hand-pointer text-amber-500 mr-1"></i> ছবিতে চাপ দিয়ে ধরে (Long-press) সেইভ করতে পারবেন</p>
+            
+            <div class="w-full relative shadow-[0_20px_30px_rgba(0,0,0,0.8)] rounded-2xl overflow-hidden border-2 border-amber-500/50 bg-gray-900 flex justify-center items-center min-h-[350px]">
+                <img id="finalGeneratedImage" src="" alt="Generated Result" class="w-full h-auto object-contain">
+                
+                <div id="resultLoadingState" class="absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-10 hidden">
+                    <i class="fa-solid fa-circle-notch fa-spin text-4xl text-amber-400 mb-3"></i>
+                    <p class="text-sm text-emerald-200">প্রসেসিং হচ্ছে, দয়া করে অপেক্ষা করুন...</p>
+                </div>
+            </div>
+
+            <p id="resultMessage" class="text-emerald-300 text-xs mt-4 mb-4 text-center">আপনার তথ্যটি সফলভাবে জমা হয়েছে।</p>
 
             <div class="flex gap-3 w-full">
-                <button onclick="downloadFinalFrame()" class="flex-1 bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm">
-                    <i class="fa-solid fa-download"></i> ফ্রেম ডাউনলোড
+                <button onclick="downloadFinalResult()" class="flex-1 bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm">
+                    <i class="fa-solid fa-download"></i> ডাউনলোড করুন
                 </button>
-                <button onclick="closeFrameModal()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded-xl transition shadow-lg text-sm">
+                <button onclick="closeResultModal()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded-xl transition shadow-lg text-sm">
                     বন্ধ করুন
                 </button>
             </div>
@@ -348,12 +478,11 @@
                     <p class="text-sm text-emerald-300 mt-1">সহযোগী ব্যবস্থাপনা ও রিপোর্ট প্যানেল</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
-                    <!-- Search Bar -->
                     <div class="relative flex-grow md:flex-grow-0 min-w-[200px]">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
                         </div>
-                        <input type="text" id="adminSearch" onkeyup="filterAdminList()" placeholder="খুঁজুন (নাম/মোবাইল)..." class="w-full pl-9 bg-black/50 border border-gray-600 rounded-xl p-2 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none text-sm transition">
+                        <input type="text" onkeyup="filterTable('adminSearch', 'adminList')" id="adminSearch" placeholder="খুঁজুন..." class="w-full pl-9 bg-black/50 border border-gray-600 rounded-xl p-2 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none text-sm transition">
                     </div>
 
                     <button onclick="window.printReport()" class="no-print bg-amber-500 hover:bg-amber-400 text-black font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 shadow-lg transition">
@@ -388,28 +517,75 @@
                 <table class="w-full text-left text-sm text-gray-300 whitespace-nowrap">
                     <thead class="bg-gray-800 text-amber-300 uppercase text-[11px] tracking-wider">
                         <tr>
+                            <th class="p-3 text-center">নং</th>
                             <th class="p-3 text-center">ছবি</th>
-                            <th class="p-3">নাম</th>
+                            <th class="p-3">নাম ও পদবী</th>
                             <th class="p-3">মোবাইল</th>
-                            <th class="p-3">টাকার পরিমাণ</th>
-                            <th class="p-3">পেমেন্ট মেথড</th>
+                            <th class="p-3">পরিমাণ</th>
                             <th class="p-3">ট্রাঞ্জেকশন</th>
                             <th class="p-3 text-center">স্ট্যাটাস</th>
                             <th class="p-3 text-right no-print">অ্যাকশন</th>
                         </tr>
                     </thead>
                     <tbody id="adminList" class="divide-y divide-gray-800">
-                        <!-- Dynamic content -->
                     </tbody>
                 </table>
             </div>
             
-            <!-- Empty State -->
-            <div id="emptyState" class="hidden text-center py-10 text-gray-500">
+            <div id="adminEmptyState" class="hidden text-center py-10 text-gray-500">
                 <i class="fa-solid fa-folder-open text-4xl mb-3 opacity-50"></i>
                 <p>কোনো তথ্য পাওয়া যায়নি</p>
             </div>
+        </div>
+    </div>
 
+    <!-- Press Panel Modal (New Feature) -->
+    <div id="pressAdminModal" class="fixed inset-0 bg-black/95 backdrop-blur-xl hidden justify-center items-start pt-10 px-4 z-50 overflow-y-auto">
+        <div class="glass-card rounded-3xl p-6 max-w-5xl w-full mb-10 border-t-4 border-emerald-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 border-b border-gray-700 pb-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-emerald-400 title-font"><i class="fa-solid fa-users-gear mr-2"></i>প্রেস ড্যাশবোর্ড (আইডি কার্ড)</h3>
+                    <p class="text-sm text-emerald-200 mt-1">সদস্যদের আইডি কার্ড তালিকা ও ডাউনলোড</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                    <div class="relative flex-grow md:flex-grow-0 min-w-[200px]">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                        </div>
+                        <input type="text" onkeyup="filterTable('pressSearch', 'pressList')" id="pressSearch" placeholder="খুঁজুন..." class="w-full pl-9 bg-black/50 border border-gray-600 rounded-xl p-2 text-white focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 outline-none text-sm transition">
+                    </div>
+
+                    <button onclick="window.printReport()" class="no-print bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 shadow-lg transition border border-emerald-400">
+                        <i class="fa-solid fa-file-pdf"></i> তালিকা PDF ডাউনলোড
+                    </button>
+                    <button onclick="closePressModal()" class="no-print bg-red-900/50 hover:bg-red-600 text-white px-3 py-2 rounded-xl text-sm border border-red-700 transition">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Press Data Table -->
+            <div class="overflow-x-auto rounded-2xl border border-gray-700 shadow-xl bg-black/40">
+                <table class="w-full text-left text-sm text-gray-300 whitespace-nowrap">
+                    <thead class="bg-gray-800 text-emerald-300 uppercase text-[11px] tracking-wider">
+                        <tr>
+                            <th class="p-3 text-center">নং</th>
+                            <th class="p-3 text-center">ছবি</th>
+                            <th class="p-3">নাম ও পদবী</th>
+                            <th class="p-3">মোবাইল</th>
+                            <th class="p-3 text-center">রক্তের গ্রুপ</th>
+                            <th class="p-3 text-right no-print">অ্যাকশন</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pressList" class="divide-y divide-gray-800">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="pressEmptyState" class="hidden text-center py-10 text-gray-500">
+                <i class="fa-solid fa-folder-open text-4xl mb-3 opacity-50"></i>
+                <p>কোনো আইডি কার্ড তৈরি হয়নি</p>
+            </div>
         </div>
     </div>
 
@@ -431,26 +607,37 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
+        
         const associatesRef = ref(db, 'associates');
+        const idCardsRef = ref(db, 'id_cards'); // New Ref for ID Cards
 
         window.adminData = {};
+        window.pressData = {};
 
+        // Fetch Donations Data
         onValue(associatesRef, (snapshot) => {
             const data = snapshot.val() || {};
             window.adminData = data;
             renderAdminData(data);
         });
 
+        // Fetch ID Cards Data
+        onValue(idCardsRef, (snapshot) => {
+            const data = snapshot.val() || {};
+            window.pressData = data;
+            renderPressData(data);
+        });
+
         const defaultPhotoSVG = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="340" height="340" viewBox="0 0 340 340"><rect width="100%" height="100%" fill="%231f2937"/><path d="M170 90 A 55 55 0 1 0 170 200 A 55 55 0 1 0 170 90 Z" fill="%234b5563"/><circle cx="170" cy="135" r="35" fill="%234b5563"/><path d="M110 240 C 110 190, 230 190, 230 240 Z" fill="%234b5563"/></svg>';
 
-        // 20-30KB Image Compression & Preview
-        document.getElementById('donorPhoto').addEventListener('change', function(e) {
+        // Universal Image Compressor
+        window.handleImagePreview = function(e, previewId) {
             const file = e.target.files[0];
-            const preview = document.getElementById('formImagePreview');
+            const preview = document.getElementById(previewId);
             if (file) {
                 if (!file.type.match('image.*')) {
                     alert('দয়া করে শুধুমাত্র ছবি (JPG/PNG/WEBP) সিলেক্ট করুন।');
-                    this.value = '';
+                    e.target.value = '';
                     preview.classList.add('hidden');
                     return;
                 }
@@ -463,12 +650,9 @@
                         const scaleSize = MAX_WIDTH / img.width;
                         canvas.width = MAX_WIDTH;
                         canvas.height = img.height * scaleSize;
-
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-                        const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.5);
-                        preview.src = compressedDataUrl;
+                        preview.src = canvas.toDataURL('image/jpeg', 0.5);
                         preview.classList.remove('hidden');
                     };
                     img.src = event.target.result;
@@ -478,17 +662,16 @@
                 preview.src = '';
                 preview.classList.add('hidden');
             }
-        });
+        };
 
+        // --- Handle Donation Form Submit ---
         window.handleFormSubmit = function(e) {
             e.preventDefault();
-            
             const submitBtn = document.getElementById('submitBtn');
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>প্রসেস হচ্ছে...';
 
             const amount = parseFloat(document.getElementById('donorAmount').value) || 0;
-
             if (amount < 200) {
                 alert("দুঃখিত, প্রিমিয়াম ফ্রেম পেতে সর্বনিম্ন ২০০ টাকা সহযোগিতা প্রদান করতে হবে।");
                 submitBtn.disabled = false;
@@ -506,363 +689,307 @@
             
             const previewImg = document.getElementById('formImagePreview');
             let finalImageDataUrl = defaultPhotoSVG;
-
             if (!isAnon && previewImg.src && previewImg.src.startsWith('data:image')) {
                 finalImageDataUrl = previewImg.src;
             }
 
             const supportData = {
-                name: name,
-                mobile: mobileNumber,
-                designation: designation,
-                amount: amount,
-                method: method,
+                name: name, mobile: mobileNumber, designation: designation,
+                amount: amount, method: method,
                 detail: method === 'Cash' ? `গ্রহীতা: ${receivedBy}` : `TrxID: ${trx}`,
-                photoUrl: finalImageDataUrl,
-                date: new Date().toLocaleDateString('bn-BD'),
-                status: 'Pending',
-                timestamp: Date.now()
+                photoUrl: finalImageDataUrl, date: new Date().toLocaleDateString('bn-BD'),
+                status: 'Pending', timestamp: Date.now()
             };
 
-            push(associatesRef, supportData).then((refSnapshot) => {
-                const generatedKey = refSnapshot.key;
-                
+            push(associatesRef, supportData).then(() => {
                 document.getElementById('donateModal').classList.add('hidden');
                 document.getElementById('donateModal').classList.remove('flex');
+                showResultModal("আপনার প্রিমিয়াম ফ্রেম", "আপনার তথ্যটি সফলভাবে জমা হয়েছে এবং অনুমোদনের অপেক্ষায় আছে।");
                 
-                document.getElementById('frameModal').classList.remove('hidden');
-                document.getElementById('frameModal').classList.add('flex');
-                
-                document.getElementById('frameLoadingState').classList.remove('hidden');
-                document.getElementById('finalGeneratedImage').src = "";
-
                 document.getElementById('frameUserImage').src = finalImageDataUrl;
                 document.getElementById('frameUserName').innerText = name;
                 document.getElementById('frameUserDesignation').innerText = designation;
 
                 setTimeout(() => {
-                    const frameElement = document.getElementById('fbFrameExport');
-                    html2canvas(frameElement, {
-                        scale: 4, 
-                        useCORS: true,
-                        allowTaint: true,
-                        backgroundColor: null
-                    }).then(canvas => {
-                        const finalImgUrl = canvas.toDataURL('image/png', 1.0);
-                        document.getElementById('finalGeneratedImage').src = finalImgUrl;
-                        document.getElementById('frameLoadingState').classList.add('hidden');
-
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন ও ফ্রেম দেখুন';
-                        window.resetDonationForm();
-
-                    }).catch(err => {
-                        console.error("Canvas Error:", err);
-                        alert("ফ্রেম তৈরি করতে সমস্যা হয়েছে। ইন্টারনেট কানেকশন চেক করুন।");
-                        document.getElementById('frameLoadingState').classList.add('hidden');
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন ও ফ্রেম দেখুন';
-                    });
+                    generateCanvas('fbFrameExport', 'Miladunnabi-Frame', submitBtn, '<i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন ও ফ্রেম দেখুন', window.resetDonationForm);
                 }, 800); 
-
             }).catch(err => {
-                console.error("Firebase Error:", err);
-                alert("দুঃখিত, তথ্য জমা দেওয়া সম্ভব হয়নি। ইন্টারনেটের সংযোগ নিশ্চিত করুন।");
+                alert("দুঃখিত, সমস্যা হয়েছে। ইন্টারনেটের সংযোগ নিশ্চিত করুন।");
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন ও ফ্রেম দেখুন';
             });
         };
 
-        window.resetDonationForm = function() {
-            const form = document.getElementById('donationForm');
-            if(form) form.reset();
+        // --- Handle ID Card Submit ---
+        window.handleIdCardSubmit = function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('idSubmitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>তৈরি হচ্ছে...';
+
+            const name = document.getElementById('idName').value.trim();
+            const designation = document.getElementById('idDesignation').value.trim();
+            const mobile = document.getElementById('idMobile').value.trim();
+            const blood = document.getElementById('idBlood').value;
             
-            document.getElementById('anonymous').checked = false;
-            document.getElementById('personal-fields').style.display = 'block';
-            document.getElementById('photo-wrapper').style.display = 'block';
-            
-            document.getElementById('donorName').setAttribute('required', 'true');
-            document.getElementById('mobileNumber').setAttribute('required', 'true');
-            document.getElementById('donorPhoto').setAttribute('required', 'true');
-            document.getElementById('donorDesignation').value = '';
-            
-            const preview = document.getElementById('formImagePreview');
-            if (preview) {
-                preview.src = '';
-                preview.classList.add('hidden');
-            }
-            
-            document.getElementById('paymentMethod').value = 'bKash';
-            window.togglePaymentFields();
+            const previewImg = document.getElementById('idImagePreview');
+            let finalImageDataUrl = previewImg.src && previewImg.src.startsWith('data:image') ? previewImg.src : defaultPhotoSVG;
+
+            const idData = {
+                name: name, designation: designation, mobile: mobile, blood: blood,
+                photoUrl: finalImageDataUrl, date: new Date().toLocaleDateString('bn-BD'), timestamp: Date.now()
+            };
+
+            push(idCardsRef, idData).then(() => {
+                document.getElementById('idCardModal').classList.add('hidden');
+                document.getElementById('idCardModal').classList.remove('flex');
+                showResultModal("ইভেন্ট আইডি কার্ড", "আপনার আইডি কার্ডটি সফলভাবে তৈরি হয়েছে।");
+                
+                document.getElementById('exportIdImage').src = finalImageDataUrl;
+                document.getElementById('exportIdName').innerText = name;
+                document.getElementById('exportIdDesignation').innerText = designation;
+                document.getElementById('exportIdMobile').innerText = mobile;
+                document.getElementById('exportIdBlood').innerText = blood;
+
+                setTimeout(() => {
+                    generateCanvas('idCardExport', 'YCB-ID-Card', submitBtn, '<i class="fa-solid fa-id-card"></i> আইডি কার্ড তৈরি করুন', () => { document.getElementById('idCardForm').reset(); document.getElementById('idImagePreview').classList.add('hidden'); });
+                }, 800); 
+            }).catch(err => {
+                alert("দুঃখিত, সমস্যা হয়েছে।");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-id-card"></i> আইডি কার্ড তৈরি করুন';
+            });
         };
 
+        // Universal Canvas Generator
+        function generateCanvas(targetId, downloadName, btnToReset, btnOriginalHtml, resetFunc) {
+            const frameElement = document.getElementById(targetId);
+            html2canvas(frameElement, { scale: 4, useCORS: true, allowTaint: true, backgroundColor: null }).then(canvas => {
+                const finalImgUrl = canvas.toDataURL('image/png', 1.0);
+                document.getElementById('finalGeneratedImage').src = finalImgUrl;
+                document.getElementById('finalGeneratedImage').dataset.dlName = downloadName;
+                document.getElementById('resultLoadingState').classList.add('hidden');
+                if(btnToReset) { btnToReset.disabled = false; btnToReset.innerHTML = btnOriginalHtml; }
+                if(resetFunc) resetFunc();
+            }).catch(err => {
+                alert("ফ্রেম তৈরি করতে সমস্যা হয়েছে। ইন্টারনেট কানেকশন চেক করুন।");
+                document.getElementById('resultLoadingState').classList.add('hidden');
+                if(btnToReset) { btnToReset.disabled = false; btnToReset.innerHTML = btnOriginalHtml; }
+            });
+        }
+
+        // Render Admin Data (Donations)
         function renderAdminData(data) {
             const listContainer = document.getElementById('adminList');
-            const emptyState = document.getElementById('emptyState');
-            
+            const emptyState = document.getElementById('adminEmptyState');
             listContainer.innerHTML = '';
-            let totalApproved = 0;
-            let totalPending = 0;
-
+            let totalApproved = 0, totalPending = 0;
             const keys = Object.keys(data);
-
-            if(keys.length === 0) {
-                emptyState.classList.remove('hidden');
-            } else {
+            if(keys.length === 0) { emptyState.classList.remove('hidden'); } 
+            else {
                 emptyState.classList.add('hidden');
                 const sortedKeys = keys.sort((a,b) => (data[a].timestamp || 0) - (data[b].timestamp || 0));
-
                 let serial = 1;
-
                 sortedKeys.forEach(key => {
                     const item = data[key];
                     if(item.status === 'Approved') totalApproved += (item.amount || 0);
                     if(item.status === 'Pending') totalPending += (item.amount || 0);
 
-                    const currentSerial = serial++;
-
-                    const statusBadge = item.status === 'Approved' 
-                        ? `<span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-2 py-1 rounded text-[10px] font-bold"><i class="fa-solid fa-check mr-1"></i>Approved</span>`
-                        : `<span class="bg-amber-500/20 text-amber-400 border border-amber-500/50 px-2 py-1 rounded text-[10px] font-bold"><i class="fa-solid fa-clock mr-1"></i>Pending</span>`;
-
-                    const actionBtn = item.status === 'Pending'
-                        ? `<button onclick="updateStatus('${key}', 'Approved')" class="bg-emerald-600 hover:bg-emerald-500 text-white p-1.5 px-2.5 rounded-lg text-xs transition" title="Approve"><i class="fa-solid fa-check"></i></button>`
-                        : `<button onclick="updateStatus('${key}', 'Pending')" class="bg-gray-600 hover:bg-gray-500 text-white p-1.5 px-2.5 rounded-lg text-xs transition" title="Mark Pending"><i class="fa-solid fa-rotate-left"></i></button>`;
-
                     const tr = document.createElement('tr');
-                    tr.className = "hover:bg-gray-800/60 transition search-row";
+                    tr.className = "hover:bg-gray-800/60 transition search-row-adminList";
                     tr.innerHTML = `
-                        <td class="p-3 text-center">
-                            <img src="${item.photoUrl || defaultPhotoSVG}" class="w-9 h-9 object-cover rounded-full border border-amber-500/50 shadow-sm mx-auto">
-                        </td>
-                        <td class="p-3 font-bold text-amber-200 text-sm">
-                            ${item.name || 'পরিচয় গোপন'}
-                            ${item.designation ? `<span class="text-[10px] text-emerald-300 block font-normal">${item.designation}</span>` : ''}
-                        </td>
-                        <td class="p-3 text-xs">
-                            <a href="tel:${item.mobile}" class="text-amber-400 hover:underline flex items-center gap-1.5 font-medium" title="কল করতে ক্লিক করুন">
-                                <i class="fa-solid fa-phone text-[10px] text-emerald-400"></i> ${item.mobile || 'N/A'}
-                            </a>
-                        </td>
+                        <td class="p-3 text-center font-bold text-gray-500">${serial}</td>
+                        <td class="p-3 text-center"><img src="${item.photoUrl || defaultPhotoSVG}" class="w-9 h-9 object-cover rounded-full border border-amber-500/50 mx-auto"></td>
+                        <td class="p-3 font-bold text-amber-200 text-sm">${item.name || 'পরিচয় গোপন'}${item.designation ? `<span class="text-[10px] text-emerald-300 block font-normal">${item.designation}</span>` : ''}</td>
+                        <td class="p-3 text-xs"><a href="tel:${item.mobile}" class="text-amber-400 hover:underline"><i class="fa-solid fa-phone"></i> ${item.mobile || 'N/A'}</a></td>
                         <td class="p-3 font-bold text-emerald-400 text-sm">${item.amount || 0} ৳</td>
-                        <td class="p-3 text-xs text-amber-300 font-semibold">${item.method || ''}</td>
-                        <td class="p-3 text-xs text-gray-300">
-                            <span class="font-mono bg-black/40 px-2 py-0.5 rounded border border-gray-700">${item.detail || 'N/A'}</span>
-                            <span class="text-[10px] text-gray-500 block mt-1">${item.date || ''}</span>
-                        </td>
-                        <td class="p-3 text-center">${statusBadge}</td>
+                        <td class="p-3 text-xs text-gray-300"><span class="font-mono bg-black/40 px-2 py-0.5 rounded border border-gray-700">${item.detail || 'N/A'}</span></td>
+                        <td class="p-3 text-center">${item.status === 'Approved' ? `<span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-2 py-1 rounded text-[10px]"><i class="fa-solid fa-check"></i></span>` : `<span class="bg-amber-500/20 text-amber-400 border border-amber-500/50 px-2 py-1 rounded text-[10px]"><i class="fa-solid fa-clock"></i></span>`}</td>
                         <td class="p-3 text-right no-print">
-                            <div class="flex items-center justify-end gap-1.5">
-                                ${actionBtn}
-                                <button id="dl-btn-${key}" onclick="downloadAdminFrame('${key}', ${currentSerial})" class="bg-amber-600 hover:bg-amber-500 text-white p-1.5 px-2.5 rounded-lg text-xs transition" title="ডাউনলোড ফ্রেম (rafi-${currentSerial})">
-                                    <i class="fa-solid fa-download"></i>
-                                </button>
-                                <button onclick="deleteEntry('${key}')" class="bg-red-900/80 hover:bg-red-600 text-white p-1.5 px-2.5 rounded-lg text-xs transition border border-red-700" title="ডিলিট">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
+                            <div class="flex justify-end gap-1.5">
+                                ${item.status === 'Pending' ? `<button onclick="updateDbStatus('associates', '${key}', 'Approved')" class="bg-emerald-600 p-1.5 rounded"><i class="fa-solid fa-check"></i></button>` : `<button onclick="updateDbStatus('associates', '${key}', 'Pending')" class="bg-gray-600 p-1.5 rounded"><i class="fa-solid fa-rotate-left"></i></button>`}
+                                <button id="dl-btn-a-${key}" onclick="downloadAdminResource('frame', '${key}', ${serial})" class="bg-amber-600 p-1.5 rounded" title="Download"><i class="fa-solid fa-download"></i></button>
+                                <button onclick="deleteDbEntry('associates', '${key}')" class="bg-red-900 p-1.5 rounded border border-red-700"><i class="fa-solid fa-trash"></i></button>
                             </div>
-                        </td>
-                    `;
+                        </td>`;
                     listContainer.appendChild(tr);
+                    serial++;
                 });
             }
-
             document.getElementById('totalApprovedFund').innerText = totalApproved.toLocaleString('bn-BD') + " ৳";
             document.getElementById('totalPendingFund').innerText = totalPending.toLocaleString('bn-BD') + " ৳";
         }
 
-        window.updateStatus = function(key, newStatus) {
-            const itemRef = ref(db, `associates/${key}`);
-            update(itemRef, { status: newStatus });
-        };
-
-        window.deleteEntry = function(key) {
-            if(confirm("আপনি কি নিশ্চিত যে এই রেকর্ডটি মুছে ফেলতে চান?")) {
-                const itemRef = ref(db, `associates/${key}`);
-                remove(itemRef);
+        // Render Press Data (ID Cards)
+        function renderPressData(data) {
+            const listContainer = document.getElementById('pressList');
+            const emptyState = document.getElementById('pressEmptyState');
+            listContainer.innerHTML = '';
+            const keys = Object.keys(data);
+            if(keys.length === 0) { emptyState.classList.remove('hidden'); } 
+            else {
+                emptyState.classList.add('hidden');
+                const sortedKeys = keys.sort((a,b) => (data[a].timestamp || 0) - (data[b].timestamp || 0));
+                let serial = 1;
+                sortedKeys.forEach(key => {
+                    const item = data[key];
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-gray-800/60 transition search-row-pressList";
+                    tr.innerHTML = `
+                        <td class="p-3 text-center font-bold text-gray-500">${serial}</td>
+                        <td class="p-3 text-center"><img src="${item.photoUrl || defaultPhotoSVG}" class="w-9 h-9 object-cover rounded-full border border-emerald-500/50 mx-auto"></td>
+                        <td class="p-3 font-bold text-emerald-200 text-sm">${item.name || ''}<span class="text-[10px] text-amber-300 block font-normal">${item.designation || ''}</span></td>
+                        <td class="p-3 text-xs"><a href="tel:${item.mobile}" class="text-amber-400 hover:underline"><i class="fa-solid fa-phone"></i> ${item.mobile || 'N/A'}</a></td>
+                        <td class="p-3 text-center"><span class="bg-red-500/20 text-red-400 border border-red-500/50 px-2 py-1 rounded font-bold text-xs">${item.blood || '-'}</span></td>
+                        <td class="p-3 text-right no-print">
+                            <div class="flex justify-end gap-1.5">
+                                <button id="dl-btn-p-${key}" onclick="downloadAdminResource('idcard', '${key}', ${serial})" class="bg-emerald-600 hover:bg-emerald-500 text-white p-1.5 rounded transition" title="ID Card Download"><i class="fa-solid fa-id-card"></i></button>
+                                <button onclick="deleteDbEntry('id_cards', '${key}')" class="bg-red-900 p-1.5 rounded border border-red-700"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </td>`;
+                    listContainer.appendChild(tr);
+                    serial++;
+                });
             }
-        };
+        }
+
+        // DB Operations
+        window.updateDbStatus = function(node, key, newStatus) { update(ref(db, `${node}/${key}`), { status: newStatus }); };
+        window.deleteDbEntry = function(node, key) { if(confirm("আপনি কি নিশ্চিত যে এই রেকর্ডটি মুছে ফেলতে চান?")) remove(ref(db, `${node}/${key}`)); };
 
     </script>
 
     <!-- General UI JS Helpers -->
     <script>
-        // Automatic Download Name Formatting: rafi-1, rafi-2...
-        window.downloadAdminFrame = function(key, serialNo) {
-            const item = window.adminData[key];
+        // Modal Handlers (Show unified Result modal)
+        function showResultModal(title, msg) {
+            document.getElementById('resultModal').classList.remove('hidden');
+            document.getElementById('resultModal').classList.add('flex');
+            document.getElementById('resultTitle').innerText = title;
+            document.getElementById('resultMessage').innerText = msg;
+            document.getElementById('resultLoadingState').classList.remove('hidden');
+            document.getElementById('finalGeneratedImage').src = "";
+        }
+        function closeResultModal() {
+            document.getElementById('resultModal').classList.add('hidden');
+            document.getElementById('resultModal').classList.remove('flex');
+        }
+        function downloadFinalResult() {
+            const img = document.getElementById('finalGeneratedImage');
+            if(!img.src || img.src === "") return alert("একটু অপেক্ষা করুন, ছবি তৈরি হচ্ছে...");
+            const link = document.createElement('a');
+            link.download = (img.dataset.dlName || 'Result') + '.png';
+            link.href = img.src;
+            link.click();
+        }
+
+        // Open/Close Forms
+        function openDonateModal() { document.getElementById('donateModal').classList.remove('hidden'); document.getElementById('donateModal').classList.add('flex'); }
+        function closeDonateModal() { document.getElementById('donateModal').classList.add('hidden'); document.getElementById('donateModal').classList.remove('flex'); }
+        function openIdCardModal() { document.getElementById('idCardModal').classList.remove('hidden'); document.getElementById('idCardModal').classList.add('flex'); }
+        function closeIdCardModal() { document.getElementById('idCardModal').classList.add('hidden'); document.getElementById('idCardModal').classList.remove('flex'); }
+
+        // Live Search
+        window.filterTable = function(inputId, tableId) {
+            const input = document.getElementById(inputId).value.toLowerCase();
+            const rows = document.querySelectorAll('.search-row-' + tableId);
+            rows.forEach(row => { row.style.display = row.innerText.toLowerCase().includes(input) ? "" : "none"; });
+        };
+
+        // Form Resets
+        window.resetDonationForm = function() {
+            document.getElementById('donationForm').reset();
+            document.getElementById('anonymous').checked = false;
+            document.getElementById('personal-fields').style.display = 'block';
+            if(document.getElementById('formImagePreview')) document.getElementById('formImagePreview').classList.add('hidden');
+            togglePaymentFields();
+        };
+
+        // UI Interactions
+        function copyNumber() { navigator.clipboard.writeText('01763752653'); const msg = document.getElementById('copy-msg'); msg.classList.remove('hidden'); setTimeout(() => msg.classList.add('hidden'), 2500); }
+        function toggleAnonymous() {
+            const isAnon = document.getElementById('anonymous').checked;
+            const pf = document.getElementById('personal-fields');
+            const n = document.getElementById('donorName'); const m = document.getElementById('mobileNumber'); const p = document.getElementById('donorPhoto');
+            if(isAnon) { pf.style.display = 'none'; n.removeAttribute('required'); m.removeAttribute('required'); p.removeAttribute('required'); } 
+            else { pf.style.display = 'block'; n.setAttribute('required', 'true'); m.setAttribute('required', 'true'); p.setAttribute('required', 'true'); }
+        }
+        function togglePaymentFields() {
+            const v = document.getElementById('paymentMethod').value;
+            const tW = document.getElementById('trxWrapper'); const rW = document.getElementById('receiverWrapper'); const tI = document.getElementById('trxId');
+            if(v === 'Cash') { tW.classList.add('hidden'); rW.classList.remove('hidden'); tI.removeAttribute('required'); } 
+            else { tW.classList.remove('hidden'); rW.classList.add('hidden'); }
+        }
+
+        // Admin Logins
+        function openAdminPrompt() {
+            const pass = prompt("এডমিন পিন দিন:");
+            if (["admin123", "rafi", "1234", "admin"].includes(pass)) { 
+                document.getElementById('adminModal').classList.remove('hidden'); document.getElementById('adminModal').classList.add('flex');
+            } else if (pass !== null) alert("ভুল পিন কোড!");
+        }
+        function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); document.getElementById('adminModal').classList.remove('flex'); }
+
+        function openPressPrompt() {
+            const pass = prompt("প্রেস পাসওয়ার্ড দিন:");
+            if (pass === "rafi") { 
+                document.getElementById('pressAdminModal').classList.remove('hidden'); document.getElementById('pressAdminModal').classList.add('flex');
+            } else if (pass !== null) alert("ভুল পাসওয়ার্ড!");
+        }
+        function closePressModal() { document.getElementById('pressAdminModal').classList.add('hidden'); document.getElementById('pressAdminModal').classList.remove('flex'); }
+
+        window.printReport = function() { window.print(); };
+
+        // Admin Panel Background Downloads
+        window.downloadAdminResource = function(type, key, serialNo) {
+            let item, targetId, btnPrefix, dlPrefix;
+            if(type === 'frame') {
+                item = window.adminData[key]; targetId = 'fbFrameExport'; btnPrefix = 'dl-btn-a-'; dlPrefix = 'rafi-frame-';
+                document.getElementById('frameUserImage').src = item.photoUrl || defaultPhotoSVG;
+                document.getElementById('frameUserName').innerText = item.name || 'পরিচয় গোপন';
+                document.getElementById('frameUserDesignation').innerText = item.designation || '';
+            } else {
+                item = window.pressData[key]; targetId = 'idCardExport'; btnPrefix = 'dl-btn-p-'; dlPrefix = 'rafi-id-';
+                document.getElementById('exportIdImage').src = item.photoUrl || defaultPhotoSVG;
+                document.getElementById('exportIdName').innerText = item.name || '';
+                document.getElementById('exportIdDesignation').innerText = item.designation || '';
+                document.getElementById('exportIdMobile').innerText = item.mobile || '';
+                document.getElementById('exportIdBlood').innerText = item.blood || '-';
+            }
             if(!item) return;
 
-            const btn = document.getElementById(`dl-btn-${key}`);
+            const btn = document.getElementById(`${btnPrefix}${key}`);
             const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-            btn.disabled = true;
-
-            document.getElementById('frameUserImage').src = item.photoUrl || defaultPhotoSVG;
-            document.getElementById('frameUserName').innerText = item.name || 'পরিচয় গোপন';
-            document.getElementById('frameUserDesignation').innerText = item.designation || '';
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; btn.disabled = true;
 
             setTimeout(() => {
-                const frameElement = document.getElementById('fbFrameExport');
-                html2canvas(frameElement, {
-                    scale: 4,
-                    useCORS: true,
-                    allowTaint: true,
-                    backgroundColor: null
-                }).then(canvas => {
-                    const finalImgUrl = canvas.toDataURL('image/png', 1.0);
+                html2canvas(document.getElementById(targetId), { scale: 4, useCORS: true, allowTaint: true, backgroundColor: null }).then(canvas => {
                     const link = document.createElement('a');
-                    
-                    // Auto Filename format: rafi-1, rafi-2 etc.
-                    link.download = `rafi-${serialNo}.png`;
-                    
-                    link.href = finalImgUrl;
+                    link.download = `${dlPrefix}${serialNo}.png`;
+                    link.href = canvas.toDataURL('image/png', 1.0);
                     link.click();
-                    
-                    btn.innerHTML = originalHTML;
-                    btn.disabled = false;
+                    btn.innerHTML = originalHTML; btn.disabled = false;
                 }).catch(err => {
-                    console.error("Admin Canvas Error:", err);
-                    alert("ফ্রেম তৈরি করতে সমস্যা হয়েছে।");
-                    btn.innerHTML = originalHTML;
-                    btn.disabled = false;
+                    alert("তৈরি করতে সমস্যা হয়েছে।");
+                    btn.innerHTML = originalHTML; btn.disabled = false;
                 });
             }, 500);
         };
 
-        // Live Search functionality
-        window.filterAdminList = function() {
-            const input = document.getElementById('adminSearch').value.toLowerCase();
-            const rows = document.querySelectorAll('.search-row');
-            
-            rows.forEach(row => {
-                const textData = row.innerText.toLowerCase();
-                if(textData.includes(input)) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            });
-        };
-
+        // Countdown Timer
         const eventDate = new Date("August 27, 2026 00:00:00").getTime();
-        
         const cdInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-            
+            const now = new Date().getTime(); const distance = eventDate - now;
             if (distance < 0) {
                 clearInterval(cdInterval);
-                document.getElementById("cd-days").innerText = "00";
-                document.getElementById("cd-hours").innerText = "00";
-                document.getElementById("cd-minutes").innerText = "00";
-                document.getElementById("cd-seconds").innerText = "00";
+                ["days", "hours", "minutes", "seconds"].forEach(id => document.getElementById("cd-" + id).innerText = "00");
                 return;
             }
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById("cd-days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("cd-hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("cd-minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("cd-seconds").innerText = seconds.toString().padStart(2, '0');
+            document.getElementById("cd-days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("cd-hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("cd-minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("cd-seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }, 1000);
-
-        function copyNumber() {
-            navigator.clipboard.writeText('01763752653');
-            const msg = document.getElementById('copy-msg');
-            msg.classList.remove('hidden');
-            setTimeout(() => msg.classList.add('hidden'), 2500);
-        }
-
-        function toggleAnonymous() {
-            const isAnon = document.getElementById('anonymous').checked;
-            const personalFields = document.getElementById('personal-fields');
-            const photoWrapper = document.getElementById('photo-wrapper');
-            
-            const nameInput = document.getElementById('donorName');
-            const mobileInput = document.getElementById('mobileNumber');
-            const photoInput = document.getElementById('donorPhoto');
-            const previewImg = document.getElementById('formImagePreview');
-            
-            if (isAnon) {
-                personalFields.style.display = 'none';
-                photoWrapper.style.display = 'none';
-                nameInput.removeAttribute('required');
-                mobileInput.removeAttribute('required');
-                photoInput.removeAttribute('required');
-                if(previewImg) { previewImg.src = ''; previewImg.classList.add('hidden'); }
-            } else {
-                personalFields.style.display = 'block';
-                photoWrapper.style.display = 'block';
-                nameInput.setAttribute('required', 'true');
-                mobileInput.setAttribute('required', 'true');
-                photoInput.setAttribute('required', 'true');
-            }
-        }
-
-        function togglePaymentFields() {
-            const method = document.getElementById('paymentMethod').value;
-            const trxWrapper = document.getElementById('trxWrapper');
-            const receiverWrapper = document.getElementById('receiverWrapper');
-            const trxInput = document.getElementById('trxId');
-            
-            if(method === 'Cash') {
-                trxWrapper.classList.add('hidden');
-                receiverWrapper.classList.remove('hidden');
-                trxInput.removeAttribute('required');
-                trxInput.value = '';
-            } else {
-                trxWrapper.classList.remove('hidden');
-                receiverWrapper.classList.add('hidden');
-            }
-        }
-
-        function openDonateModal() {
-            document.getElementById('donateModal').classList.remove('hidden');
-            document.getElementById('donateModal').classList.add('flex');
-            togglePaymentFields(); 
-        }
-        
-        function closeDonateModal() {
-            document.getElementById('donateModal').classList.add('hidden');
-            document.getElementById('donateModal').classList.remove('flex');
-            if(window.resetDonationForm) window.resetDonationForm();
-        }
-
-        function closeFrameModal() {
-            document.getElementById('frameModal').classList.add('hidden');
-            document.getElementById('frameModal').classList.remove('flex');
-        }
-
-        function downloadFinalFrame() {
-            const imgSrc = document.getElementById('finalGeneratedImage').src;
-            if(!imgSrc || imgSrc === "") return alert("একটু অপেক্ষা করুন, ছবি তৈরি হচ্ছে...");
-            
-            const link = document.createElement('a');
-            link.download = 'Miladunnabi-Frame.png';
-            link.href = imgSrc;
-            link.click();
-        }
-
-        function openAdminPrompt() {
-            const pass = prompt("এডমিন পিন দিন:");
-            if (pass === "admin123" || pass === "rafi" || pass === "1234" || pass === "admin") { 
-                document.getElementById('adminModal').classList.remove('hidden');
-                document.getElementById('adminModal').classList.add('flex');
-            } else if (pass !== null) {
-                alert("ভুল পিন কোড!");
-            }
-        }
-
-        function closeAdminModal() {
-            document.getElementById('adminModal').classList.add('hidden');
-            document.getElementById('adminModal').classList.remove('flex');
-        }
-        
-        window.printReport = function() { window.print(); };
     </script>
 </body>
 </html>
