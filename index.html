@@ -16,7 +16,6 @@
     <style>
         body {
             font-family: 'Hind Siliguri', sans-serif;
-            /* থিমের ব্যাকগ্রাউন্ড পরিবর্তন করে রয়েল ব্লু করা হয়েছে */
             background: linear-gradient(135deg, rgba(4, 15, 45, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%), 
                         url('https://i.ibb.co.com/60w75Tqf/Free-Islamic-template-1.jpg') no-repeat center center fixed;
             background-size: cover;
@@ -28,7 +27,7 @@
         }
         .title-font { font-family: 'Tiro Bangla', serif; }
         .glass-card {
-            background: rgba(10, 25, 60, 0.75); /* ব্লু গ্লাস ইফেক্ট */
+            background: rgba(10, 25, 60, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(212, 175, 55, 0.35);
@@ -160,7 +159,7 @@
             </div>
         </div>
 
-        <!-- NEW: Public ID Card Search Section -->
+        <!-- Public ID Card Search Section -->
         <div class="w-full max-w-md mx-auto mt-4 mb-8">
             <div class="bg-blue-950/40 p-2 rounded-full border border-blue-500/40 flex items-center shadow-lg backdrop-blur-md relative">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -400,6 +399,36 @@
         </div>
     </div>
 
+    <!-- NEW: ID Card Closed Modal -->
+    <div id="idCardClosedModal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden justify-center items-center p-4 z-50">
+        <div class="glass-card rounded-3xl p-6 md:p-8 max-w-md w-full text-center relative border-2 border-red-500/50 shadow-2xl space-y-5">
+            <button onclick="closeIdCardClosedModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl transition">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+
+            <div class="w-16 h-16 bg-red-500/20 text-red-400 rounded-full flex items-center justify-center mx-auto text-3xl border border-red-500/40">
+                <i class="fa-solid fa-ban"></i>
+            </div>
+            
+            <h3 class="text-2xl font-extrabold text-red-400 title-font">
+                আবেদন বন্ধ আছে
+            </h3>
+            
+            <p class="text-sm text-blue-200/90 leading-relaxed">
+                দুঃখিত! পবিত্র ঈদ-এ-মিলাদুন্নবী (সা.) উপলক্ষে আইডি কার্ডের অনলাইন আবেদন গ্রহণ সাময়িকভাবে বন্ধ আছে। জরুরি প্রয়োজনে সরাসরি যোগাযোগ করুন।
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <a href="tel:+8801763752653" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm border border-emerald-400/50">
+                    <i class="fa-solid fa-phone"></i> কল করুন
+                </a>
+                <a href="https://wa.me/8801763752653" target="_blank" class="flex-1 bg-green-500 hover:bg-green-400 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm border border-green-300/50">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Hidden Pre-render Containers (Frame & ID Card) -->
     <div style="position: absolute; top: -9999px; left: -9999px; pointer-events: none;">
         
@@ -490,6 +519,22 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
+            </div>
+
+            <!-- NEW: Admin ID Card Control Toggle Switch -->
+            <div class="bg-gradient-to-r from-blue-950/80 to-black/80 p-4 rounded-2xl border border-blue-600/50 flex flex-col sm:flex-row justify-between items-center gap-4 mb-6 shadow-inner">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 border border-blue-500/40 flex items-center justify-center">
+                        <i class="fa-solid fa-id-card-clip text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-sm font-bold text-white block">আইডি কার্ড আবেদনের স্ট্যাটাস</span>
+                        <span id="adminIdCardBadge" class="text-xs px-2.5 py-0.5 rounded-full font-bold bg-green-500/20 text-green-400 border border-green-500/40 inline-block mt-1">চালু আছে</span>
+                    </div>
+                </div>
+                <button onclick="toggleIdCardAdminStatus()" id="adminToggleIdBtn" class="bg-red-600 hover:bg-red-500 text-white font-extrabold px-5 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-lg">
+                    <i class="fa-solid fa-power-off"></i> আবেদন বন্ধ করুন
+                </button>
             </div>
 
             <!-- Dashboard Stats -->
@@ -590,7 +635,7 @@
     <!-- Firebase SDK Integration & Main JS -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getDatabase, ref, push, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        import { getDatabase, ref, push, onValue, update, remove, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
         const firebaseConfig = {
           apiKey: "AIzaSyDC0gAAMYoHFlGdGNd_pf4u8FESYD92HRA",
@@ -608,9 +653,44 @@
         
         const associatesRef = ref(db, 'associates');
         const idCardsRef = ref(db, 'id_cards'); 
+        const settingsRef = ref(db, 'settings');
 
         window.adminData = {};
         window.pressData = {};
+        window.isIdCardActive = true; 
+
+        // Listen to Settings (ID Card Status)
+        onValue(settingsRef, (snapshot) => {
+            const settings = snapshot.val() || {};
+            window.isIdCardActive = settings.idCardActive !== undefined ? settings.idCardActive : true;
+            updateIdCardStatusUI(window.isIdCardActive);
+        });
+
+        // Toggle ID Card Status via Admin Panel
+        window.toggleIdCardAdminStatus = function() {
+            const nextStatus = !window.isIdCardActive;
+            set(ref(db, 'settings/idCardActive'), nextStatus).then(() => {
+                alert(nextStatus ? "আইডি কার্ডের আবেদন সফলভাবে চালু করা হয়েছে!" : "আইডি কার্ডের আবেদন সফলভাবে বন্ধ করা হয়েছে!");
+            }).catch(err => alert("ত্রুটি হয়েছে! ইন্টারনেট কানেকশন দিন।"));
+        };
+
+        function updateIdCardStatusUI(isActive) {
+            const badge = document.getElementById('adminIdCardBadge');
+            const btn = document.getElementById('adminToggleIdBtn');
+            if(!badge || !btn) return;
+
+            if (isActive) {
+                badge.innerText = "চালু আছে";
+                badge.className = "text-xs px-2.5 py-0.5 rounded-full font-bold bg-green-500/20 text-green-400 border border-green-500/40 inline-block mt-1";
+                btn.innerHTML = '<i class="fa-solid fa-power-off"></i> আবেদন বন্ধ করুন';
+                btn.className = "bg-red-600 hover:bg-red-500 text-white font-extrabold px-5 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-lg";
+            } else {
+                badge.innerText = "বন্ধ আছে";
+                badge.className = "text-xs px-2.5 py-0.5 rounded-full font-bold bg-red-500/20 text-red-400 border border-red-500/40 inline-block mt-1";
+                btn.innerHTML = '<i class="fa-solid fa-play"></i> আবেদন চালু করুন';
+                btn.className = "bg-green-600 hover:bg-green-500 text-white font-extrabold px-5 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-lg";
+            }
+        }
 
         // Fetch Donations Data
         onValue(associatesRef, (snapshot) => {
@@ -770,7 +850,7 @@
             });
         }
 
-        // ================= NEW: Public Search Logic =================
+        // Public Search Logic
         window.searchIdCardPublic = function() {
             const searchMobile = document.getElementById('publicSearchMobile').value.trim();
             if(!searchMobile) {
@@ -791,15 +871,12 @@
             }
 
             if (foundItem) {
-                // Populate the hidden export div for Canvas
                 document.getElementById('exportIdImage').src = foundItem.photoUrl || defaultPhotoSVG;
                 document.getElementById('exportIdName').innerText = foundItem.name || '';
                 document.getElementById('exportIdDesignation').innerText = foundItem.designation || '';
                 
-                // Show Result Modal
                 showResultModal("আপনার ইভেন্ট আইডি কার্ড", "আপনার আইডি কার্ডটি সফলভাবে খুঁজে পাওয়া গেছে।");
                 
-                // Trigger Canvas Generate (Without resetting any button since it's just a search)
                 setTimeout(() => {
                     generateCanvas('idCardExport', 'YCB-ID-Card-' + searchMobile, null, null, null);
                 }, 800);
@@ -807,7 +884,6 @@
                 alert('দুঃখিত! এই নাম্বারে কোনো আইডি কার্ড পাওয়া যায়নি। নাম্বারটি সঠিকভাবে চেক করুন।');
             }
         };
-        // ============================================================
 
         function renderAdminData(data) {
             const listContainer = document.getElementById('adminList');
@@ -912,8 +988,19 @@
 
         function openDonateModal() { document.getElementById('donateModal').classList.remove('hidden'); document.getElementById('donateModal').classList.add('flex'); }
         function closeDonateModal() { document.getElementById('donateModal').classList.add('hidden'); document.getElementById('donateModal').classList.remove('flex'); }
-        function openIdCardModal() { document.getElementById('idCardModal').classList.remove('hidden'); document.getElementById('idCardModal').classList.add('flex'); }
+        
+        // Smart ID Card Modal Handler (Based on Admin toggle status)
+        function openIdCardModal() { 
+            if (window.isIdCardActive === false) {
+                document.getElementById('idCardClosedModal').classList.remove('hidden');
+                document.getElementById('idCardClosedModal').classList.add('flex');
+            } else {
+                document.getElementById('idCardModal').classList.remove('hidden');
+                document.getElementById('idCardModal').classList.add('flex');
+            }
+        }
         function closeIdCardModal() { document.getElementById('idCardModal').classList.add('hidden'); document.getElementById('idCardModal').classList.remove('flex'); }
+        function closeIdCardClosedModal() { document.getElementById('idCardClosedModal').classList.add('hidden'); document.getElementById('idCardClosedModal').classList.remove('flex'); }
 
         window.filterTable = function(inputId, tableId) {
             const input = document.getElementById(inputId).value.toLowerCase();
